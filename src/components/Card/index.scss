@@ -1,0 +1,67 @@
+.p1-card {
+    padding: 18px;
+    background: #fafafa;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    border-radius: 0.35rem;
+
+    &.p1-padding-0 {
+        padding: 0px;
+    }
+    &.p1-padding-1 {
+        padding: 18px;
+    }
+    &.p1-padding-2 {
+        padding: 36px;
+    }
+    &.p1-padding-3 {
+        padding: 54px;
+    }
+    &.p1-padding-4 {
+        padding: 72px;
+    }
+
+    &.p1-elevation-0 {
+        box-shadow: none;
+    }
+
+    &.p1-elevation-1 {
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    }
+
+    &.p1-elevation-2 {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+
+    &.p1-elevation-3 {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    }
+
+    &.p1-elevation-4 {
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    }
+
+    &.p1-radius-0 {
+        border-radius: 0;
+    }
+
+    &.p1-radius-1 {
+        border-radius: 0.35rem;
+    }
+
+    &.p1-radius-2 {
+        border-radius: 0.5rem;
+    }
+
+    &.p1-radius-3 {
+        border-radius: 0.75rem;
+    }
+
+    &.p1-radius-4 {
+        border-radius: 1rem;
+    }
+
+    &.p1-dark {
+        background: #3d3d3d;
+        color: #fafafa;
+    }
+}

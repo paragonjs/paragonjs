@@ -1,0 +1,179 @@
+/// @thanks to raubaca! https://codepen.io/raubaca/pen/BjGKde
+
+$clouds: #ecf0f1;
+$turquoise: #1abc9c;
+$greensea: #16a085;
+$night: #34495e;
+$midnight: #2c3e50;
+$transition: all 0.5s ease;
+
+/* Hide the input */
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.check-trail {
+    display: flex;
+    align-items: center;
+    width: 45px;
+    height: 25px;
+    background: $midnight;
+    border-radius: 2.5em;
+    transition: $transition;
+    cursor: pointer;
+}
+.check-handler {
+    display: flex;
+    margin-left: 0.2em;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background: $night;
+    border-radius: 50%;
+    transition: $transition;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    &:before {
+        content: "\00D7";
+        color: white;
+        font-size: 1em;
+        font-weight: bold;
+    }
+}
+input[type="checkbox"]:checked + .check-trail {
+    background: $greensea;
+    .check-handler {
+        margin-left: 50%;
+        background: $turquoise;
+        &::before {
+            content: "\2714";
+        }
+    }
+}
+
+/**
+ *
+ *
+ *  Switch B begins here
+ *
+ *
+ */
+.switch-b {
+    --line: #505162;
+    --dot: #f7f8ff;
+    --circle: #9ea0be;
+    --duration: 0.3s;
+    --text: #9ea0be;
+    cursor: pointer;
+    input {
+        display: none;
+        & + div {
+            position: relative;
+            &:before,
+            &:after {
+                --s: 1;
+                content: "";
+                position: absolute;
+                height: 4px;
+                top: 10px;
+                width: 24px;
+                background: var(--line);
+                transform: scaleX(var(--s));
+                transition: transform var(--duration) ease;
+            }
+            &:before {
+                --s: 0;
+                left: 0;
+                transform-origin: 0 50%;
+                border-radius: 2px 0 0 2px;
+            }
+            &:after {
+                left: 28px;
+                transform-origin: 100% 50%;
+                border-radius: 0 2px 2px 0;
+            }
+            span {
+                padding-left: 56px;
+                line-height: 24px;
+                color: var(--text);
+                &:before {
+                    --x: 0;
+                    --b: var(--circle);
+                    --s: 4px;
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 50%;
+                    box-shadow: inset 0 0 0 var(--s) var(--b);
+                    transform: translateX(var(--x));
+                    transition: box-shadow var(--duration) ease, transform var(--duration) ease;
+                }
+                &:not(:empty) {
+                    padding-left: 64px;
+                }
+            }
+        }
+        &:checked {
+            & + div {
+                &:before {
+                    --s: 1;
+                }
+                &:after {
+                    --s: 0;
+                }
+                span {
+                    &:before {
+                        --x: 28px;
+                        --s: 12px;
+                        --b: var(--dot);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ *
+ * Switch-C begins here
+ *
+ */
+
+.switch-c input {
+    position: absolute;
+    opacity: 0;
+}
+
+/**
+   * 1. Adjust this to size
+   */
+
+.switch-c {
+    display: inline-block;
+    font-size: 20px; /* 1 */
+    height: 1em;
+    width: 2em;
+    background: #bdb9a6;
+    border-radius: 1em;
+}
+
+.switch-c div {
+    height: 1em;
+    width: 1em;
+    border-radius: 1em;
+    background: #fff;
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    transition: all 300ms;
+}
+
+.switch-c input:checked + div {
+    -webkit-transform: translate3d(100%, 0, 0);
+    -moz-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+}

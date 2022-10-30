@@ -1,0 +1,13 @@
+@import "../../scss/variables";
+
+.p1-navbar-toggler {
+    display: block;
+    margin-left: auto;
+    border: none;
+    font-weight: 900;
+    font-size: 24px;
+
+    @include media-breakpoint-up(md) {
+        display: none;
+    }
+}

@@ -1,0 +1,192 @@
+.p1-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 0.25rem;
+    height: 30px;
+    width: 100px;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    padding: 0.2rem 0.5rem;
+    font-size: 1rem;
+
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+        "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: transform 150ms ease;
+
+    &.p1-fill {
+        width: 100%;
+    }
+
+    &:active {
+        box-shadow: 1px 1px 4px rgba(30, 30, 30, 0.3);
+        transform: translateY(2px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
+.p1-blue {
+    background-color: #0984e3;
+    color: #eaeaea;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #888;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #218ada;
+    }
+    &:active {
+        background-color: #2a7dbd;
+    }
+}
+
+.p1-purple {
+    background-color: #6c5ce7;
+    color: #eaeaea;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #888;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #4f3dd9;
+    }
+
+    &:active {
+        background-color: #3522c2;
+    }
+}
+
+.p1-red {
+    background-color: #eb4d4b;
+    color: #eaeaea;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #888;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #e93c39;
+    }
+    &:active {
+        background-color: #d6201d;
+    }
+}
+
+.p1-yellow {
+    background-color: #fdcb6e;
+    color: #212121;
+
+    &:hover {
+        background-color: #f4bd56;
+    }
+    &:active {
+        background-color: #e6a937;
+    }
+}
+
+.p1-pink {
+    background-color: #e84393;
+    color: #fafafa;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #888;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #cb2e7a;
+    }
+    &:active {
+        background-color: #c3186b;
+    }
+}
+
+.p1-green {
+    background-color: #009432;
+    color: #eaeaea;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #aaa;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #107f35;
+    }
+    &:active {
+        background-color: #1b783a;
+    }
+}
+
+.p1-lavander {
+    background-color: #d980fa;
+    color: #fff;
+
+    &:hover {
+        background-color: #ca63f0;
+    }
+    &:active {
+        background-color: #bc4be5;
+    }
+}
+
+.p1-berry {
+    background-color: #b53471;
+    color: #fff;
+
+    .p1-spinner {
+        .p1-spinner-svg {
+            path {
+                stroke: #888;
+            }
+            .p1-spinner-stroke {
+                stroke: #fff;
+            }
+        }
+    }
+    &:hover {
+        background-color: #b12466;
+    }
+    &:active {
+        background-color: #a81a5c;
+    }
+}

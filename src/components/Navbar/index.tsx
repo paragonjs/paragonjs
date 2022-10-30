@@ -1,0 +1,69 @@
+import "./index.scss";
+import * as React from "react";
+import NavHeading from "../NavbarHeading";
+import NavLink from "../NavbarLink";
+import NavCollapse from "../NavbarCollapse";
+import NavToggler from "../NavbarToggler";
+import useDynamicClassname from "../../hooks/useDynamicClassname";
+
+/**
+ *
+ * @function Navbar
+ *
+ *  Navigation bar component - Bundled with NavbarCollapse, NavbarHeading, NavbarLink, and NavbarToggler -
+ *  these components can be accessed by using <Navbar.Collapse/>, <Navbar.Toggler/>, etc.
+ *
+ * @param cenetered - Margin centered if true.
+ *
+ *  default: false
+ *
+ * @param variant - This changes the overal theme of the navbar.
+ *
+ *  Options: "dark" | "light"
+ *
+ *  Default: "light"
+ *
+ * @param direction - The direction of the navigation bar.
+ *
+ *  Options: "horizontal" | "vertical"
+ *
+ *  Default: "horizontal"
+ *
+ */
+const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
+    const { centered, direction, variant, className, ...rest } = props;
+
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-navbar",
+        props: {
+            className,
+            centered,
+            direction,
+            variant,
+        },
+        dynamicProps: {
+            /**
+             * 
+             * Variant can be light or dark.
+             *  
+             */ 
+            variant: ["light, dark"],
+            /**
+             * 
+             * Direction of horizontal bar - vertical meant to be used as a sidebar.
+             * 
+             */
+            direction: ["horizontal", "vertical"],
+            centered: [true, false],
+        },
+    });
+
+    return <div {...rest} className={classNames} />;
+};
+
+export default Object.assign(Navbar, {
+    Heading: NavHeading,
+    Collapse: NavCollapse,
+    Link: NavLink,
+    Toggler: NavToggler,
+});
