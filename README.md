@@ -1,44 +1,56 @@
+# Paradigm.js
 
-# AsyncButton
+Paradigm is a React-based component library for front-end development. Paradigm's goal is to create
+a basic toolkit which can help both experienced and new developers to quickly bootstrap
+applications, build production web-applications, and more.
 
-  
+Paradigm is currently under development but ready to use! At the time of writing, there is a small
+handful of components available to use.
 
-Async button is a small react-based package which exposes a simplistic yet useful button made to
+## Installation
 
-handle asynchronous  actions.
+To install Paradigm, please use the following command in the root directory of any React
+application.
 
-  
+```
+yarn add @paradigmjs/components
+```
 
-Async Button automatically shows a loading indicator while actions are being performed.
+or
 
-  
+```
+npm install @paradigmjs/components
+```
 
 ## Usage
 
-  
+Paradigm is simple to use; just important a component and render it.
 
-```js
-import { AsyncButton } from "@kaymo/async-button";
+Paradigm's components come preloaded with many props which increase their usability and utility,
+also helping you style your application quickly.
+
+```ts
+import { Card, AsyncButton } from "@paradigmjs/components";
 
 export default function Example() {
-	async function handleClick() {
-		... your asyncronous call here
-	}
-	
-	return <AsyncButton onClick={handleClick}>Test!</AsyncButton>
+    return (
+        <Card>
+            <AsyncButton />
+        </Card>
+    );
 }
-
 ```
 
-## Props
+## Development
 
-  
+To help develop, clone this repository.
 
-**onClick**: () => Promise<*void*>; 
-Default: undefined.
+You can test local builds using NPM or Yarn link.
 
-**color**: "red" | "blue" | "purple" | "yellow" | "pink" | "green";
-Default: undefined.
+1. In Paradigm repository: `yarn link`
 
-**children**: React.ReactNode 
-Default: <span></span>
+2. In another React repository where you can render and test components:
+   ` yarn link "@paradigmjs/components" `
+3. Begin importing components into the project, you can rebuild the Paradigm repository using
+   `yarn build` in the Paradigm repository; This will update all projects which are linked using npm
+   and yarn with the new build.
