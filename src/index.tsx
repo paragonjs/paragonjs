@@ -14,6 +14,8 @@ import Switch from "./components/Switch";
 import Toast from "./components/Toast";
 import Toaster from "./components/Toaster";
 import ToastProvider from "./context/ToastContext";
+import Popover from "./components/Popover";
+
 import useToaster from "./hooks/useToaster";
 
 export {
@@ -32,6 +34,7 @@ export {
     Button,
     Toast,
     Toaster,
+    Popover,
     ToastProvider,
     useToaster,
     //  CodeBlock,
