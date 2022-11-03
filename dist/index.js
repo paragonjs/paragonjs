@@ -51,11 +51,14 @@ const Spinner = (props) => {
 function useDynamicClassname({ initialClassname, props, dynamicProps, }) {
     return React.useMemo(() => {
         const classNames = [];
+        classNames.push(initialClassname);
         if (props.className)
             classNames.push(props.className);
-        classNames.push(initialClassname);
         for (const propName of Object.keys(dynamicProps)) {
             if (props[propName] || props[propName] === 0) {
+                const caller = useDynamicClassname.caller;
+                const name = caller.displayName || caller.name;
+                invariant__default["default"](dynamicProps[propName].includes(props[propName]), `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`);
                 /// Check for number
                 if (typeof props[propName] === "number") {
                     classNames.push(`p1-${propName}-${props[propName]}`);
@@ -86,7 +89,7 @@ const AsyncButton = (props) => {
             fill,
         },
         dynamicProps: {
-            color: ["blue", "red", "green", "yellow", "pink", "purple"],
+            color: ["blue", "red", "green", "yellow", "pink", "purple", "lavander", "berry"],
             fill: [true, false],
         },
     });
@@ -101,6 +104,23 @@ const AsyncButton = (props) => {
         }
     }
     return (jsxRuntime.jsx("button", { ...rest, id: `p1-button${props.id ? ` ${props.id}` : ""}`, className: classNames, onClick: handleClick, children: _loading || loading ? jsxRuntime.jsx(Spinner, {}) : props.children }));
+};
+
+const Button = (props) => {
+    const { color, className, fill, ...rest } = props;
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-button",
+        props: {
+            color,
+            className,
+            fill,
+        },
+        dynamicProps: {
+            color: ["blue", "red", "green", "yellow", "pink", "purple", "lavander", "berry"],
+            fill: [true, false],
+        },
+    });
+    return jsxRuntime.jsx("button", { ...rest, className: classNames });
 };
 
 ___$insertStyle(".not-async-button {\n  width: 100%;\n}");
@@ -185,22 +205,18 @@ const NavLink = (props) => {
 ___$insertStyle(".p1-navbar-collapse {\n  display: none;\n  width: 100%;\n  flex-basis: 100%;\n  gap: 12px;\n  flex-direction: column;\n}\n.p1-navbar-collapse.left {\n  justify-content: flex-start;\n}\n.p1-navbar-collapse.right {\n  justify-content: flex-end;\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-show {\n    flex: 1;\n    display: flex;\n    flex-basis: 100%;\n    align-items: flex-start;\n    padding: 1rem 0;\n  }\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse {\n    flex-direction: row;\n    flex: 1;\n    display: flex;\n    align-items: center;\n  }\n}");
 
 const NavbarCollapse = (props) => {
-    const classNames = React__namespace.useMemo(() => {
-        const _classNames = ["p1-navbar-collapse"];
-        //// Check POSITION
-        if (props.position) {
-            if (props.position !== "left" && props.position !== "right") {
-                throw invariant__default["default"]("Position must be either 'right' or 'left'");
-            }
-            _classNames.push(props.position);
-        }
-        /// Check CLASSNAME
-        if (props.className) {
-            _classNames.push(props.className);
-        }
-        return _classNames.join(" ");
-    }, [props.position, props.className]);
-    return jsxRuntime.jsx("div", { ...props, id: "p1-navbar-collapse", className: classNames });
+    const { position, className, ...rest } = props;
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-navbar-collapse",
+        props: {
+            position,
+            className,
+        },
+        dynamicProps: {
+            position: ["left", "right"],
+        },
+    });
+    return jsxRuntime.jsx("div", { ...rest, id: "p1-navbar-collapse", className: classNames });
 };
 
 ___$insertStyle(".p1-navbar-toggler {\n  display: block;\n  margin-left: auto;\n  border: none;\n  font-weight: 900;\n  font-size: 24px;\n}\n@media (min-width: 768px) {\n  .p1-navbar-toggler {\n    display: none;\n  }\n}");
@@ -215,40 +231,56 @@ const NavbarToggler = (props) => {
     return (jsxRuntime.jsx("button", { className: `p1-navbar-toggler ${props.className ? ` ${props.className}` : ""}`, type: "button", "data-toggle": "collapse", "data-target": "p1-navbar-collapse", onClick: handleClick, children: "\u2630" }));
 };
 
+/**
+ *
+ * @function Navbar
+ *
+ *  Navigation bar component - Bundled with NavbarCollapse, NavbarHeading, NavbarLink, and NavbarToggler -
+ *  these components can be accessed by using <Navbar.Collapse/>, <Navbar.Toggler/>, etc.
+ *
+ * @param cenetered - Margin centered if true.
+ *
+ *  default: false
+ *
+ * @param variant - This changes the overal theme of the navbar.
+ *
+ *  Options: "dark" | "light"
+ *
+ *  Default: "light"
+ *
+ * @param direction - The direction of the navigation bar.
+ *
+ *  Options: "horizontal" | "vertical"
+ *
+ *  Default: "horizontal"
+ *
+ */
 const Navbar = (props) => {
     const { centered, direction, variant, className, ...rest } = props;
     const classNames = useDynamicClassname({
         initialClassname: "p1-navbar",
         props: {
+            variant,
             className,
             centered,
             direction,
-            variant,
         },
         dynamicProps: {
-            variant: ["light, dark"],
+            /**
+             *
+             * Variant can be light or dark.
+             *
+             */
+            variant: ["light", "dark"],
+            /**
+             *
+             * Direction of horizontal bar - vertical meant to be used as a sidebar.
+             *
+             */
             direction: ["horizontal", "vertical"],
             centered: [true, false],
         },
     });
-    //const { centered, direction, variant, ...rest } = props;
-    /*const classNames = React.useMemo(() => {
-        const _classNames = [];
-
-        if (props.direction) {
-            if (props.direction !== "horizontal" && props.direction !== "vertical") {
-                throw invariant("Direction must be either 'vertical' or 'horizontal'");
-            }
-
-            _classNames.push(props.direction);
-        }
-
-        if (props.className) {
-            _classNames.push(props.className);
-        }
-
-        return _classNames.join(" ");
-    }, [props.direction, props.className]);*/
     return jsxRuntime.jsx("div", { ...rest, className: classNames });
 };
 var index = Object.assign(Navbar, {
@@ -274,7 +306,146 @@ const SwitchA = (props) => (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [js
 const SwitchB = (props) => (jsxRuntime.jsxs("label", { className: "switch-b", children: [jsxRuntime.jsx("input", { type: "checkbox", ...props }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", {}) })] }));
 const SwitchC = (props) => (jsxRuntime.jsx("div", { className: "switch-c-container", children: jsxRuntime.jsxs("label", { className: "switch-c", children: [jsxRuntime.jsx("input", { type: "checkbox", ...props }), " ", jsxRuntime.jsx("div", {})] }) }));
 
+___$insertStyle("/**\n *\n * Ease-In Functions\n *\n */\n/**\n*\n* Ease-Out Functions\n*\n*/\n.p1-toast-provider {\n  z-index: 20;\n}\n.p1-toast-provider .p1-toast {\n  display: flex;\n  z-index: 20;\n  justify-content: center;\n  align-self: center;\n  align-items: center;\n  padding: 1rem 2rem;\n  text-align: center;\n  top: 0px;\n  transform: translateY(3vh);\n  border-radius: 0.35rem;\n  background: white;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  transition: all 400ms;\n  animation: toast 350ms cubic-bezier(0.12, 0, 0.39, 0) 0s 1 normal;\n}\n\n.p1-fade {\n  opacity: 0;\n  animation: fade 500ms cubic-bezier(0.11, 0, 0.5, 0) 0s 1 normal !important;\n}\n\n@keyframes toast {\n  0% {\n    transform: translateY(-27vh) rotate(26deg);\n  }\n  10% {\n    transform: translateY(-24vh) rotate(26deg);\n  }\n  90% {\n    transform: translateY(0vh) rotate(26deg);\n  }\n  100% {\n    transform: translateY(3vh) rotate(0deg);\n  }\n}\n@keyframes fade {\n  0% {\n    opacity: 1;\n  }\n  100% {\n    opacity: 0;\n  }\n}");
+
+var ToasterActions$1;
+(function (ToasterActions) {
+    ToasterActions["CREATE_TOAST"] = "CREATE_TOAST";
+    ToasterActions["REMOVE_TOAST"] = "REMOVE_TOAST";
+    ToasterActions["REMOVE_TOAST_AT_INDEX"] = "REMOVE_TOAST_AT_INDEX";
+    ToasterActions["CLEAN_TOASTER"] = "CLEAN_TOASTER";
+})(ToasterActions$1 || (ToasterActions$1 = {}));
+const ToastReducer = (state, action) => {
+    switch (action.type) {
+        case ToasterActions$1.CREATE_TOAST:
+            return {
+                ...state,
+                toasts: [...state.toasts, action.payload],
+            };
+        case ToasterActions$1.REMOVE_TOAST:
+            return {
+                ...state,
+                toasts: state.toasts.slice(0, state.toasts.length - 1),
+            };
+        case ToasterActions$1.REMOVE_TOAST_AT_INDEX:
+            return {
+                ...state,
+                toasts: [
+                    ...state.toasts.slice(0, action.payload - 1),
+                    ...state.toasts.slice(action.payload, state.toasts.length),
+                ],
+            };
+        case ToasterActions$1.CLEAN_TOASTER:
+            return {
+                ...state,
+                toasts: [],
+            };
+        default: {
+            return {
+                ...state,
+            };
+        }
+    }
+};
+
+const initial = {
+    toasts: [],
+};
+const ToastContext = React__namespace.createContext([
+    initial,
+    () => {
+        /*
+         */
+    },
+]);
+const ToastProvider = ({ children }) => {
+    const [state, dispatch] = React__namespace.useReducer(ToastReducer, initial);
+    return jsxRuntime.jsx(ToastContext.Provider, { value: [state, dispatch], children: children });
+};
+
+var ToasterActions;
+(function (ToasterActions) {
+    ToasterActions["CREATE_TOAST"] = "CREATE_TOAST";
+    ToasterActions["REMOVE_TOAST"] = "REMOVE_TOAST";
+    ToasterActions["REMOVE_TOAST_AT_INDEX"] = "REMOVE_TOAST_AT_INDEX";
+    ToasterActions["CLEAN_TOASTER"] = "CLEAN_TOASTER";
+})(ToasterActions || (ToasterActions = {}));
+function useToaster() {
+    const [state, dispatch] = React.useContext(ToastContext);
+    const { toasts } = state;
+    function createToast(message, type = "default") {
+        const toastKey = Math.floor(Math.random() * (999999999999 - 1) + 1).toString();
+        dispatch({
+            type: ToasterActions.CREATE_TOAST,
+            payload: {
+                message,
+                toastKey,
+                type,
+            },
+        });
+    }
+    function removeToast(toastKey) {
+        dispatch({
+            type: ToasterActions.REMOVE_TOAST,
+            payload: toastKey,
+        });
+    }
+    function removeToastAtIndex(index) {
+        dispatch({
+            type: ToasterActions.REMOVE_TOAST_AT_INDEX,
+            payload: index,
+        });
+    }
+    function cleanToaster() {
+        dispatch({
+            type: ToasterActions.CLEAN_TOASTER,
+            payload: null,
+        });
+    }
+    return {
+        toasts,
+        createToast,
+        removeToast,
+        removeToastAtIndex,
+        cleanToaster,
+    };
+}
+
+const Toast = (props) => {
+    const { removeToast } = useToaster();
+    const { expiresAfter = 5000, fadesAfter = 4500, ...rest } = props;
+    /**
+     *
+     * Random key generation - This is used to target animations to specific toasts and also for removing specific toasts.
+     *
+     */
+    const key = React__namespace.useMemo(() => {
+        return Math.floor(Math.random() * (99999999999 - 1) + 1);
+    }, []);
+    React__namespace.useEffect(() => {
+        const element = document.querySelector(`.toast-key${key}`);
+        setTimeout(function () {
+            element.classList.add("p1-fade");
+            setTimeout(() => {
+                removeToast(key.toString());
+            }, expiresAfter - fadesAfter);
+        }, expiresAfter);
+    }, [key, removeToast, expiresAfter, fadesAfter]);
+    return (jsxRuntime.jsx("div", { ...rest, className: `p1-toast${props.className ? ` ${props.className}` : ""} toast-key${key}`, children: props.children }));
+};
+
+___$insertStyle(".p1-toast-provider {\n  position: fixed;\n  pointer-events: none;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  gap: 0.5rem;\n  align-items: center;\n  top: 0;\n  width: 100%;\n  height: 100%;\n}");
+
+const Toaster = (props) => {
+    const { toasts } = useToaster();
+    return (jsxRuntime.jsx("div", { className: "p1-toast-provider", children: toasts &&
+            toasts.map((toast) => {
+                return jsxRuntime.jsx(Toast, { children: toast.message }, toast.toastKey);
+            }) }));
+};
+
 exports.AsyncButton = AsyncButton;
+exports.Button = Button;
 exports.Card = Card;
 exports.Column = Column;
 exports.NavCollapse = NavbarCollapse;
@@ -286,4 +457,8 @@ exports.NotAsyncButton = NotAsyncButton;
 exports.Row = Row;
 exports.Spinner = Spinner;
 exports.Switch = Switch;
+exports.Toast = Toast;
+exports.ToastProvider = ToastProvider;
+exports.Toaster = Toaster;
+exports.useToaster = useToaster;
 //# sourceMappingURL=index.js.map

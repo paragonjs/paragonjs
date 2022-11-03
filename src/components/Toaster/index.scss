@@ -1,0 +1,12 @@
+.p1-toast-provider {
+    position: fixed;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}

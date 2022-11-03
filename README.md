@@ -65,20 +65,12 @@ also helping you style your application quickly.
 
 import  { Card, AsyncButton }  from  "@paradigmjs/components";
 
-  
-
 export  default  function  Example()  {
-
-return (
-
-<Card>
-
-<AsyncButton />
-
-</Card>
-
-);
-
+	return (
+		<Card>
+			<AsyncButton />
+		</Card>
+	);
 }
 
 ```

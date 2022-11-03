@@ -36,22 +36,22 @@ const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
     const classNames = useDynamicClassname({
         initialClassname: "p1-navbar",
         props: {
+            variant,
             className,
             centered,
             direction,
-            variant,
         },
         dynamicProps: {
             /**
-             * 
+             *
              * Variant can be light or dark.
-             *  
-             */ 
-            variant: ["light, dark"],
+             *
+             */
+            variant: ["light", "dark"],
             /**
-             * 
+             *
              * Direction of horizontal bar - vertical meant to be used as a sidebar.
-             * 
+             *
              */
             direction: ["horizontal", "vertical"],
             centered: [true, false],

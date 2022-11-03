@@ -1,6 +1,6 @@
 import sass from 'rollup-plugin-sass'
 import typescript from 'rollup-plugin-typescript2'
-
+import resolve from '@rollup/plugin-node-resolve';
 import pkg from './package.json'
 
 export default {
@@ -14,6 +14,7 @@ export default {
       strict: false
     }
   ],
-  plugins: [sass({ insert: true }), typescript()],
-  external: ['react', 'react-dom']
+
+  plugins: [resolve(),sass({ insert: true }), typescript()],
+  external: ['react', 'react-dom',"react/jsx-runtime","tiny-invariant"]
 }

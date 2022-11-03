@@ -1,6 +1,6 @@
 import * as React from "react";
 import "./index.scss";
-import invariant from "tiny-invariant";
+import useDynamicClassname from "../../hooks/useDynamicClassname";
 
 export interface NavbarCollapseProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -9,27 +9,19 @@ export interface NavbarCollapseProps
 }
 
 const NavbarCollapse: React.FC<NavbarCollapseProps> = (props: NavbarCollapseProps) => {
-    const classNames = React.useMemo(() => {
-        const _classNames = ["p1-navbar-collapse"];
+    const { position, className, ...rest } = props;
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-navbar-collapse",
+        props: {
+            position,
+            className,
+        },
+        dynamicProps: {
+            position: ["left", "right"],
+        },
+    });
 
-        //// Check POSITION
-        if (props.position) {
-            if (props.position !== "left" && props.position !== "right") {
-                throw invariant("Position must be either 'right' or 'left'");
-            }
-
-            _classNames.push(props.position);
-        }
-
-        /// Check CLASSNAME
-        if (props.className) {
-            _classNames.push(props.className);
-        }
-
-        return _classNames.join(" ");
-    }, [props.position, props.className]);
-
-    return <div {...props} id="p1-navbar-collapse" className={classNames}></div>;
+    return <div {...rest} id="p1-navbar-collapse" className={classNames}></div>;
 };
 
 export default NavbarCollapse;

@@ -16,7 +16,7 @@ const AsyncButton: React.FC<AsyncButtonProps> = (props: AsyncButtonProps): JSX.E
             fill,
         },
         dynamicProps: {
-            color: ["blue", "red", "green", "yellow", "pink", "purple"],
+            color: ["blue", "red", "green", "yellow", "pink", "purple", "lavander", "berry"],
             fill: [true, false],
         },
     });
