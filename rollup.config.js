@@ -16,5 +16,5 @@ export default {
   ],
 
   plugins: [resolve(),sass({ insert: true }), typescript()],
-  external: ['react', 'react-dom',"react/jsx-runtime","tiny-invariant"]
+  external: ['react', 'react-dom',"react/jsx-runtime","tiny-invariant"],
 }

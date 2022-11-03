@@ -1,0 +1,40 @@
+#popper {
+    height: 30px;
+    width: 200px;
+    background: black;
+    color: white;
+}
+
+#p1-popover-arrow,
+#p1-popover-arrow::before {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: inherit;
+}
+
+#p1-popover-arrow {
+    visibility: hidden;
+}
+
+#p1-popover-arrow::before {
+    visibility: visible;
+    content: "";
+    transform: rotate(45deg);
+}
+
+#p1-tooltip[data-popper-placement^="top"] > #p1-popover-arrow {
+    bottom: -4px;
+}
+
+#p1-tooltip[data-popper-placement^="bottom"] > #p1-popover-arrow {
+    top: -4px;
+}
+
+#p1-tooltip[data-popper-placement^="left"] > #p1-popover-arrow {
+    right: -4px;
+}
+
+#p1-tooltip[data-popper-placement^="right"] > #p1-popover-arrow {
+    left: -3px;
+}
