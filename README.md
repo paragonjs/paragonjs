@@ -39,7 +39,7 @@ import { Card, AsyncButton } from "@paragonjs/core";
 export default function Example() {
     return (
         <Card>
-            <AsyncButton />
+            <AsyncButton color="lavander">Click me!</AsyncButton>
         </Card>
     );
 }
@@ -55,10 +55,12 @@ const TypescriptExample: React.FC<React.HTMLAttributes<HTMLDivElement>> = (
 ): JSX.Element => {
     return (
         <Card>
-            <AsyncButton />
+            <AsyncButton color="berry">Click me</AsyncButton>
         </Card>
     );
 };
+
+export default TypescriptExample;
 ```
 
 ## Development
