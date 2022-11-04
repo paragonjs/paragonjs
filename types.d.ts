@@ -1,5 +1,3 @@
-
-
 interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     onClick?: (...args: any) => void;
     color?: "blue" | "red" | "green" | "yellow" | "pink" | "purple" | "lavander" | "berry";
@@ -24,6 +22,10 @@ interface CardProps
 interface ColumnProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     fluid: boolean;
+    padding: 0 | 1 | 2 | 3 | 4;
+    radius: 0 | 1 | 2 | 3 | 4;
+    variant: "light" | "dark";
+    gap: number;
 }
 
 interface RowProps

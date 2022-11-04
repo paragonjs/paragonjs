@@ -142,16 +142,27 @@ const Row = (props) => {
     return jsxRuntime.jsx("div", { ...props, className: classNames });
 };
 
-___$insertStyle(".p1-col {\n  display: flex;\n  flex-direction: column;\n}\n.p1-col .fluid {\n  width: 100%;\n}");
+___$insertStyle(".p1-col {\n  display: flex;\n  flex-direction: column;\n}\n.p1-col.p1-gap-1 {\n  gap: 0.5rem;\n}\n.p1-col.p1-gap-2 {\n  gap: 1rem;\n}\n.p1-col.p1-gap-3 {\n  gap: 1.5rem;\n}\n.p1-col.p1-gap-4 {\n  gap: 2rem;\n}\n.p1-col.p1-gap-0 {\n  gap: 0;\n}\n.p1-col .fluid {\n  width: 100%;\n}");
 
 const Column = (props) => {
-    const classNames = React__namespace.useMemo(() => {
-        if (props.fluid) {
-            return `p1-col fluid${props.className ? ` ${props.className} ` : ""} `;
-        }
-        return `p1-col${props.className ? ` ${props.className}` : ""}`;
-    }, [props.className, props.fluid]);
-    return jsxRuntime.jsx("div", { ...props, className: classNames });
+    const { className, radius, gap, variant, padding, ...rest } = props;
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-col",
+        props: {
+            className,
+            radius,
+            gap,
+            variant,
+            padding,
+        },
+        dynamicProps: {
+            radius: [0, 1, 2, 3, 4],
+            variant: ["light", "dark"],
+            padding: [0, 1, 2, 3, 4],
+            gap: [0, 1, 2, 3, 4],
+        },
+    });
+    return jsxRuntime.jsx("div", { ...rest, className: classNames });
 };
 
 ___$insertStyle(".p1-card {\n  padding: 18px;\n  background: #fafafa;\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n  border-radius: 0.35rem;\n}\n.p1-card.p1-padding-0 {\n  padding: 0px;\n}\n.p1-card.p1-padding-1 {\n  padding: 18px;\n}\n.p1-card.p1-padding-2 {\n  padding: 36px;\n}\n.p1-card.p1-padding-3 {\n  padding: 54px;\n}\n.p1-card.p1-padding-4 {\n  padding: 72px;\n}\n.p1-card.p1-elevation-0 {\n  box-shadow: none;\n}\n.p1-card.p1-elevation-1 {\n  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;\n}\n.p1-card.p1-elevation-2 {\n  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;\n}\n.p1-card.p1-elevation-3 {\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;\n}\n.p1-card.p1-elevation-4 {\n  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;\n}\n.p1-card.p1-radius-0 {\n  border-radius: 0;\n}\n.p1-card.p1-radius-1 {\n  border-radius: 0.35rem;\n}\n.p1-card.p1-radius-2 {\n  border-radius: 0.5rem;\n}\n.p1-card.p1-radius-3 {\n  border-radius: 0.75rem;\n}\n.p1-card.p1-radius-4 {\n  border-radius: 1rem;\n}\n.p1-card.p1-dark {\n  background: #3d3d3d;\n  color: #fafafa;\n}");
