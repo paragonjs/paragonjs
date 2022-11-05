@@ -22,6 +22,7 @@
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
         "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies,
-        "react/prop-types": "off"
+        "react/prop-types": "off",
+        "@typescript-eslint/ban-ts-comment": "off"
     }
 }

@@ -124,3 +124,35 @@ interface AnimeAnimation extends anime.AnimeParams {
     easing?: anime.AnimeParams["easing"];
     loop?: boolean;
 }
+
+/**
+ *
+ * Navbar Context
+ *
+ */
+
+interface NavbarState {
+    collapser: HTMLElement | null;
+    toggler: HTMLElement | null;
+    collapserHeight: number;
+}
+
+type NavbarContextInterface = [NavbarState, React.Dispatch<NavbarActions>];
+
+enum EnumerableNavbarActions {
+    SET_COLLAPSER = "SET_COLLAPSER",
+    SET_TOGGLER = "SET_TOGGLER",
+    SET_COLLAPSER_HEIGHT = "SET_COLLAPSER_HEIGHT",
+}
+interface NavbarActionsArgs {
+    SET_COLLAPSER: HTMLElement;
+    SET_TOGGLER: HTMLElement;
+    SET_COLLAPSER_HEIGHT: number;
+}
+
+type NavbarActions = {
+    [Key in keyof NavbarActionsArgs]: {
+        type: Key;
+        payload: NavbarActionsArgs[Key];
+    };
+}[keyof NavbarActionsArgs];

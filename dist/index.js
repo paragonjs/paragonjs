@@ -189,7 +189,7 @@ const Card = (props) => {
     return jsxRuntime.jsx("div", { ...rest, className: classNames });
 };
 
-___$insertStyle(".p1-navbar {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 1rem 2rem;\n  gap: 0.25rem;\n}\n.p1-navbar.p1-vertical {\n  padding: 2rem 2rem;\n  width: 20vw;\n  flex-direction: column;\n  gap: 1rem;\n}\n.p1-navbar.p1-vertical.p1-centered {\n  justify-content: center;\n}\n.p1-navbar.p1-vertical.p1-centered .p1-navbar-collapse {\n  flex: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse {\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n  flex-basis: unset;\n  text-align: left;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-right {\n  align-items: flex-end;\n  justify-content: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-left {\n  align-items: flex-start;\n  justify-content: unset;\n}\n.p1-navbar .p1-navbar-collapse.p1-right {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar .p1-navbar-collapse.p1-left {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar.p1-horizontal {\n  flex-direction: row;\n}\n@media (min-width: 768px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 992px) {\n  .p1-navbar {\n    padding: 1rem 4rem;\n  }\n}\n@media (min-width: 1200px) {\n  .p1-navbar {\n    padding: 1rem 6rem;\n  }\n}");
+___$insertStyle(".p1-navbar {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 1rem 2rem;\n  gap: 0.25rem;\n  box-sizing: border-box;\n}\n.p1-navbar.p1-vertical {\n  padding: 2rem 2rem;\n  width: 20vw;\n  flex-direction: column;\n  gap: 1rem;\n}\n.p1-navbar.p1-vertical.p1-centered {\n  justify-content: center;\n}\n.p1-navbar.p1-vertical.p1-centered .p1-navbar-collapse {\n  flex: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  flex-direction: column;\n  gap: 1rem;\n  flex-basis: unset;\n  text-align: left;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-right {\n  align-items: flex-end;\n  justify-content: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-left {\n  align-items: flex-start;\n  justify-content: unset;\n}\n.p1-navbar .p1-navbar-collapse.p1-right {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar .p1-navbar-collapse.p1-left {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar.p1-horizontal {\n  flex-direction: row;\n}\n@media (min-width: 768px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 992px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 1200px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}");
 
 ___$insertStyle(".p1-navbar-heading {\n  font-size: 24px;\n}\n.p1-navbar-heading.small {\n  font-size: 16px;\n}\n.p1-navbar-heading.medium {\n  font-size: 24px;\n}\n.p1-navbar-heading.large {\n  font-size: 32px;\n}");
 
@@ -213,10 +213,235 @@ const NavLink = (props) => {
     return (jsxRuntime.jsx("div", { ...props, className: `p1-navbar-link${props.className ? ` ${props.className}` : ""}` }));
 };
 
-___$insertStyle(".p1-navbar-collapse {\n  display: none;\n  width: 100%;\n  flex-basis: 100%;\n  gap: 12px;\n  flex-direction: column;\n}\n.p1-navbar-collapse.left {\n  justify-content: flex-start;\n}\n.p1-navbar-collapse.right {\n  justify-content: flex-end;\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-show {\n    flex: 1;\n    display: flex;\n    flex-basis: 100%;\n    align-items: flex-start;\n    padding: 1rem 0;\n  }\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse {\n    flex-direction: row;\n    flex: 1;\n    display: flex;\n    align-items: center;\n  }\n}");
+___$insertStyle(".p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  width: 100%;\n  flex-basis: 100%;\n  gap: 12px;\n  flex-direction: column;\n  flex: 1;\n  flex-basis: 100%;\n}\n.p1-navbar-collapse.left {\n  justify-content: flex-start;\n}\n.p1-navbar-collapse.right {\n  justify-content: flex-end;\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse {\n    display: flex;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-show {\n    display: flex;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n    align-items: flex-start;\n    padding: 1rem 0;\n    height: auto;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-hide {\n    overflow: hidden;\n    flex: 1;\n    flex-basis: 100%;\n    width: 100vw;\n    min-width: 100vw;\n    height: 0px;\n  }\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse {\n    flex-direction: row;\n    flex: 1;\n    display: flex !important;\n    height: 100% !important;\n    align-items: center;\n  }\n}");
 
+var EnumerableNavbarActions$1;
+(function (EnumerableNavbarActions) {
+    EnumerableNavbarActions["SET_COLLAPSER"] = "SET_COLLAPSER";
+    EnumerableNavbarActions["SET_TOGGLER"] = "SET_TOGGLER";
+    EnumerableNavbarActions["SET_COLLAPSER_HEIGHT"] = "SET_COLLAPSER_HEIGHT";
+})(EnumerableNavbarActions$1 || (EnumerableNavbarActions$1 = {}));
+const NavbarReducer = (state, action) => {
+    switch (action.type) {
+        case EnumerableNavbarActions$1.SET_COLLAPSER:
+            return {
+                ...state,
+                collapser: action.payload,
+            };
+        case EnumerableNavbarActions$1.SET_TOGGLER:
+            return {
+                ...state,
+                toggler: action.payload,
+            };
+        case EnumerableNavbarActions$1.SET_COLLAPSER_HEIGHT:
+            return {
+                ...state,
+                collapserHeight: action.payload,
+            };
+        default: {
+            return {
+                ...state,
+            };
+        }
+    }
+};
+
+const initial$1 = {
+    collapser: null,
+    toggler: null,
+    collapserHeight: 0,
+};
+const NavbarContext = React__namespace.createContext([
+    initial$1,
+    () => {
+        //
+    },
+]);
+const NavbarProvider = ({ children }) => {
+    const [state, dispatch] = React__namespace.useReducer(NavbarReducer, initial$1);
+    return jsxRuntime.jsx(NavbarContext.Provider, { value: [state, dispatch], children: children });
+};
+
+var EnumerableNavbarActions;
+(function (EnumerableNavbarActions) {
+    EnumerableNavbarActions["SET_COLLAPSER"] = "SET_COLLAPSER";
+    EnumerableNavbarActions["SET_TOGGLER"] = "SET_TOGGLER";
+    EnumerableNavbarActions["SET_COLLAPSER_HEIGHT"] = "SET_COLLAPSER_HEIGHT";
+})(EnumerableNavbarActions || (EnumerableNavbarActions = {}));
+const animationFrames = 30;
+const animationLength = 300;
+function useNavbarContext() {
+    const [state, dispatch] = React.useContext(NavbarContext);
+    const setToggler = React.useCallback((element) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_TOGGLER,
+            payload: element,
+        });
+    }, [dispatch]);
+    const setCollapser = React.useCallback((element) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_COLLAPSER,
+            payload: element,
+        });
+    }, [dispatch]);
+    const setCollapserHeight = React.useCallback((height) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_COLLAPSER_HEIGHT,
+            payload: height,
+        });
+    }, [dispatch]);
+    const collapseAnimation = React.useCallback(() => {
+        const { collapser, collapserHeight } = state;
+        /**
+         * If height is zero, we expand
+         */
+        if (collapser.style.height === "0px") {
+            /**
+             *
+             * Add flex before expanding.
+             */
+            collapser.style.display = "flex";
+            /**
+             * Create a loop which will iterate {frames} times.
+             */
+            Array(animationFrames)
+                .fill(0)
+                .forEach((item, i) => {
+                /**
+                 * Timeout is based on frame-rate
+                 */
+                setTimeout(() => {
+                    collapser.style.height =
+                        i === animationFrames - 1
+                            ? `${collapserHeight}px`
+                            : `${(collapserHeight / animationFrames) * i}px`;
+                }, (animationLength / animationFrames) * i);
+            });
+        }
+        else {
+            Array(animationFrames)
+                .fill(0)
+                .forEach((item, i) => {
+                setTimeout(() => {
+                    if (i === animationFrames - 1) {
+                        /**
+                         * Force 0px on final iteration, this helps mitigate small discrepancies in rounding.
+                         */
+                        collapser.style.height = `0px`;
+                        /**
+                         * Display is set to none as the final action of the loop.
+                         */
+                        collapser.style.display = "none";
+                    }
+                    else {
+                        collapser.style.height = `${collapserHeight - (collapserHeight / animationFrames) * i}px`;
+                    }
+                }, (animationLength / animationFrames) * i);
+            });
+        }
+    }, [state]);
+    return {
+        ...state,
+        setCollapser,
+        setToggler,
+        setCollapserHeight,
+        collapseAnimation,
+    };
+}
+
+/**
+ * Returns the owner document of a given element.
+ * 
+ * @param node the element
+ */
+function ownerDocument(node) {
+  return node && node.ownerDocument || document;
+}
+
+/**
+ * Returns the owner window of a given element.
+ * 
+ * @param node the element
+ */
+
+function ownerWindow(node) {
+  var doc = ownerDocument(node);
+  return doc && doc.defaultView || window;
+}
+
+/**
+ * Returns one or all computed style properties of an element.
+ * 
+ * @param node the element
+ * @param psuedoElement the style property
+ */
+
+function getComputedStyle$1(node, psuedoElement) {
+  return ownerWindow(node).getComputedStyle(node, psuedoElement);
+}
+
+var rUpper = /([A-Z])/g;
+function hyphenate(string) {
+  return string.replace(rUpper, '-$1').toLowerCase();
+}
+
+/**
+ * Copyright 2013-2014, Facebook, Inc.
+ * All rights reserved.
+ * https://github.com/facebook/react/blob/2aeb8a2a6beb00617a4217f7f8284924fa2ad819/src/vendor/core/hyphenateStyleName.js
+ */
+var msPattern = /^ms-/;
+function hyphenateStyleName(string) {
+  return hyphenate(string).replace(msPattern, '-ms-');
+}
+
+var supportedTransforms = /^((translate|rotate|scale)(X|Y|Z|3d)?|matrix(3d)?|perspective|skew(X|Y)?)$/i;
+function isTransform(value) {
+  return !!(value && supportedTransforms.test(value));
+}
+
+function style(node, property) {
+  var css = '';
+  var transforms = '';
+
+  if (typeof property === 'string') {
+    return node.style.getPropertyValue(hyphenateStyleName(property)) || getComputedStyle$1(node).getPropertyValue(hyphenateStyleName(property));
+  }
+
+  Object.keys(property).forEach(function (key) {
+    var value = property[key];
+
+    if (!value && value !== 0) {
+      node.style.removeProperty(hyphenateStyleName(key));
+    } else if (isTransform(key)) {
+      transforms += key + "(" + value + ") ";
+    } else {
+      css += hyphenateStyleName(key) + ": " + value + ";";
+    }
+  });
+
+  if (transforms) {
+    css += "transform: " + transforms + ";";
+  }
+
+  node.style.cssText += ";" + css;
+}
+
+const MARGINS = {
+    height: ["marginTop", "marginBottom"],
+    width: ["marginLeft", "marginRight"],
+};
+function getDefaultDimensionValue(dimension, elem) {
+    const offset = `offset${dimension[0].toUpperCase()}${dimension.slice(1)}`;
+    const value = elem[offset];
+    const margins = MARGINS[dimension];
+    // @ts-ignore
+    return value + parseInt(style(elem, margins[0]), 10) + parseInt(style(elem, margins[1]), 10);
+}
 const NavbarCollapse = (props) => {
     const { position, className, ...rest } = props;
+    const { setCollapserHeight, setCollapser } = useNavbarContext();
+    const ref = React__namespace.useRef();
     const classNames = useDynamicClassname({
         initialClassname: "p1-navbar-collapse",
         props: {
@@ -227,20 +452,43 @@ const NavbarCollapse = (props) => {
             position: ["left", "right"],
         },
     });
-    return jsxRuntime.jsx("div", { ...rest, id: "p1-navbar-collapse", className: classNames });
+    React__namespace.useEffect(() => {
+        if (ref && ref.current) {
+            setCollapser(ref.current);
+        }
+    }, [ref, setCollapser]);
+    React__namespace.useEffect(() => {
+        if (ref && ref.current) {
+            setCollapserHeight(Math.ceil(getDefaultDimensionValue("height", ref.current)));
+        }
+    }, [ref, setCollapserHeight]);
+    return jsxRuntime.jsx("div", { ...rest, ref: ref, id: "p1-navbar-collapse", className: classNames });
 };
+NavbarCollapse.displayName = "NavbarCollapse";
 
 ___$insertStyle(".p1-navbar-toggler {\n  display: block;\n  margin-left: auto;\n  border: none;\n  font-weight: 900;\n  font-size: 24px;\n}\n@media (min-width: 768px) {\n  .p1-navbar-toggler {\n    display: none;\n  }\n}");
 
 const NavbarToggler = (props) => {
+    const { setToggler, toggler, collapseAnimation } = useNavbarContext();
     const [show, setShow] = React__namespace.useState(false);
+    const ref = React__namespace.useRef();
     const handleClick = () => {
+        document.querySelectorAll(".p1-navbar-collapse");
         setShow(!show);
-        const navs = document.querySelectorAll(".p1-navbar-collapse");
-        navs.forEach((nav) => nav.classList.toggle("navbar-collapse-show"));
     };
-    return (jsxRuntime.jsx("button", { className: `p1-navbar-toggler ${props.className ? ` ${props.className}` : ""}`, type: "button", "data-toggle": "collapse", "data-target": "p1-navbar-collapse", onClick: handleClick, children: "\u2630" }));
+    React__namespace.useEffect(() => {
+        if (ref && ref.current) {
+            setToggler(ref.current);
+        }
+    }, [ref, setToggler]);
+    React__namespace.useEffect(() => {
+        if (toggler) {
+            toggler.addEventListener("click", collapseAnimation);
+        }
+    }, [toggler, collapseAnimation]);
+    return (jsxRuntime.jsx("button", { ref: ref, className: `p1-navbar-toggler ${props.className ? ` ${props.className}` : ""}`, type: "button", "data-toggle": "collapse", "data-target": "p1-navbar-collapse", onClick: handleClick, children: "\u2630" }));
 };
+NavbarToggler.displayName = "NavbarToggler";
 
 /**
  *
@@ -292,7 +540,7 @@ const Navbar = (props) => {
             centered: [true, false],
         },
     });
-    return jsxRuntime.jsx("div", { ...rest, className: classNames });
+    return (jsxRuntime.jsx(NavbarProvider, { children: jsxRuntime.jsx("div", { ...rest, className: classNames }) }));
 };
 var index = Object.assign(Navbar, {
     Heading: NavbarHeading,

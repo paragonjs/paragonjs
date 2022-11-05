@@ -5,6 +5,7 @@ import NavLink from "../NavbarLink";
 import NavCollapse from "../NavbarCollapse";
 import NavToggler from "../NavbarToggler";
 import useDynamicClassname from "../../hooks/useDynamicClassname";
+import NavbarProvider from "../../context/NavbarContext";
 
 /**
  *
@@ -58,7 +59,11 @@ const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
         },
     });
 
-    return <div {...rest} className={classNames} />;
+    return (
+        <NavbarProvider>
+            <div {...rest} className={classNames} />
+        </NavbarProvider>
+    );
 };
 
 export default Object.assign(Navbar, {

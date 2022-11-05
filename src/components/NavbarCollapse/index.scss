@@ -1,11 +1,14 @@
 @import "../../scss/variables";
 
 .p1-navbar-collapse {
-    display: none;
+    display: flex;
+    height: auto;
     width: 100%;
     flex-basis: 100%;
     gap: 12px;
     flex-direction: column;
+    flex: 1;
+    flex-basis: 100%;
 
     &.left {
         justify-content: flex-start;
@@ -15,20 +18,44 @@
         justify-content: flex-end;
     }
 
+    @include media-breakpoint-down(md) {
+        display: flex;
+        width: 100vw;
+        min-width: 100vw;
+        flex: 1;
+        flex-basis: 100%;
+    }
+
     &.navbar-collapse-show {
         @include media-breakpoint-down(md) {
-            flex: 1;
             display: flex;
+            width: 100vw;
+            min-width: 100vw;
+            flex: 1;
             flex-basis: 100%;
             align-items: flex-start;
             padding: 1rem 0;
+            height: auto;
+        }
+    }
+
+    &.navbar-collapse-hide {
+        @include media-breakpoint-down(md) {
+            //display: none;
+            overflow: hidden;
+            flex: 1;
+            flex-basis: 100%;
+            width: 100vw;
+            min-width: 100vw;
+            height: 0px;
         }
     }
 
     @include media-breakpoint-up(md) {
         flex-direction: row;
         flex: 1;
-        display: flex;
+        display: flex !important;
+        height: 100% !important;
         align-items: center;
     }
 }
