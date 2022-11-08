@@ -1,28 +1,6 @@
+@import "../../scss/containers.scss";
+
 .p1-col {
     display: flex;
     flex-direction: column;
-
-    &.p1-gap-1 {
-        gap: 0.5rem;
-    }
-
-    &.p1-gap-2 {
-        gap: 1rem;
-    }
-
-    &.p1-gap-3 {
-        gap: 1.5rem;
-    }
-
-    &.p1-gap-4 {
-        gap: 2rem;
-    }
-
-    &.p1-gap-0 {
-        gap: 0;
-    }
-
-    .fluid {
-        width: 100%;
-    }
 }

@@ -22,14 +22,14 @@ type Placement =
 type Strategy = "absolute" | "fixed";
 
 interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
-    element: Element;
+    element: Element | HTMLElement;
     placement?: Placement;
     arrow?: boolean;
     strategy?: Strategy;
 }
 
 const Popover: React.FC<PopperProps> = (props: PopperProps) => {
-    const { element, placement = "auto", arrow = false, children, ...rest } = props;
+    const { element, placement = "auto", arrow = false, strategy, children, ...rest } = props;
 
     React.useEffect(() => {
         const popper: HTMLElement = document.querySelector("#p1-tooltip");
@@ -44,17 +44,17 @@ const Popover: React.FC<PopperProps> = (props: PopperProps) => {
         }
 
         const elementClass = children.props.className;
-        const arrow = document.querySelector("#p1-popover-arrow");
-        const element: HTMLElement = document.querySelector(`.${elementClass}`);
+        const arrowComponent = document.querySelector("#p1-popover-arrow");
+        const elementComponent: HTMLElement = document.querySelector(`.${elementClass}`);
 
-        createPopper(element, popper, {
+        createPopper(elementComponent, popper, {
             placement: placement ? placement : "auto",
-            strategy: "absolute",
+            strategy: strategy,
             modifiers: [
                 {
                     name: "arrow",
                     options: {
-                        element: arrow,
+                        element: arrowComponent,
                         placement: "top",
                         padding: 12,
                     },
@@ -62,12 +62,12 @@ const Popover: React.FC<PopperProps> = (props: PopperProps) => {
                 {
                     name: "offset",
                     options: {
-                        offset: [0, 4],
+                        offset: [0, 8],
                     },
                 },
             ],
         });
-    }, [children, placement]);
+    }, [children, placement, strategy]);
 
     return (
         <>

@@ -9,17 +9,30 @@
     flex-direction: column;
     flex: 1;
     flex-basis: 100%;
+    overflow: hidden;
+    z-index: 0;
 
-    &.left {
-        justify-content: flex-start;
-    }
-
-    &.right {
-        justify-content: flex-end;
+    &.p1 {
+        &-position {
+            &-left {
+                align-items: flex-end;
+                @include media-breakpoint-up(md) {
+                    justify-content: flex-start;
+                }
+            }
+            &-right {
+                align-items: flex-start;
+                @include media-breakpoint-up(md) {
+                    justify-content: flex-end;
+                }
+            }
+        }
     }
 
     @include media-breakpoint-down(md) {
+        box-sizing: border-box;
         display: flex;
+        padding: 2rem 2rem;
         width: 100vw;
         min-width: 100vw;
         flex: 1;

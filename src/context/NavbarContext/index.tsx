@@ -5,6 +5,7 @@ const initial: NavbarState = {
     collapser: null,
     toggler: null,
     collapserHeight: 0,
+    expanded: false,
 };
 
 export const NavbarContext = React.createContext<NavbarContextInterface>([

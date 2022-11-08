@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import * as React from "react";
 import invariant from "tiny-invariant";
 
 export interface UseDynamicContextProps {
@@ -14,7 +14,7 @@ export default function useDynamicClassname({
     props,
     dynamicProps,
 }: UseDynamicContextProps) {
-    return useMemo(() => {
+    return React.useMemo(() => {
         const classNames: Array<string> = [];
         classNames.push(initialClassname);
         if (props.className) classNames.push(props.className);
@@ -39,7 +39,7 @@ export default function useDynamicClassname({
                 }
                 /// Check strings
                 else {
-                    classNames.push(`p1-${props[propName]}`);
+                    classNames.push(`p1-${propName}-${props[propName]}`);
                 }
             }
         }

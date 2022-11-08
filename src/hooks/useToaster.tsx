@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import * as React from "react";
 import { ToastContext } from "../context/ToastContext";
 
 enum ToasterActions {
@@ -24,7 +24,7 @@ export default function useToaster(): {
     cleanToaster: () => void;
 } {
     const [state, dispatch]: ToastContextInterface =
-        useContext<ToastContextInterface>(ToastContext);
+        React.useContext<ToastContextInterface>(ToastContext);
 
     const { toasts } = state;
 

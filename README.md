@@ -6,8 +6,9 @@ Paragon is a React-based component library for front-end development. Paragon's 
 basic toolkit which can help both experienced and new developers to quickly bootstrap applications,
 build production web-applications, and more.
 
-Paragon is currently under development but is ready to use! At the time of writing, there is a small
-handful of components available to use.
+Paragon is currently under development but is ready to alpha test! At the time of writing, there is
+a small handful of components available to use. Please use at your own risk, while these components
+should work, there could be limited functionality or bugs present.
 
 ## Installation
 

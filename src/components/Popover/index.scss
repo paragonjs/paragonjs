@@ -1,16 +1,11 @@
-#popper {
-    height: 30px;
-    width: 200px;
-    background: black;
-    color: white;
-}
-
 #p1-popover-arrow,
 #p1-popover-arrow::before {
     position: absolute;
-    width: 8px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
     background: inherit;
+    background: white;
+    z-index: -1;
 }
 
 #p1-popover-arrow {
