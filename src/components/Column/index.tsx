@@ -3,18 +3,33 @@ import useDynamicClassname from "../../hooks/useDynamicClassname";
 import "./index.scss";
 
 const Column: React.FC<ColumnProps> = (props: ColumnProps) => {
-    const { className, radius, gap, variant, padding, ...rest } = props;
+    const { className, gap, fluid, variant, padding, justify, align, ...rest } = props;
     const classNames = useDynamicClassname({
         initialClassname: "p1-col",
         props: {
             className,
-            radius,
             gap,
             variant,
             padding,
+            fluid,
+            justify,
+            align,
         },
         dynamicProps: {
-            radius: [0, 1, 2, 3, 4],
+            justify: [
+                "flex-start",
+                "flex-end",
+                "space-around",
+                "space-between",
+                "auto",
+                "center",
+                "space-evenly",
+                "stretch",
+                "unset",
+                "revert",
+            ],
+            align: ["flex-start", "flex-end", "center", "baseline", "stretch", "revert", "unset"],
+            fluid: [false, true],
             variant: ["light", "dark"],
             padding: [0, 1, 2, 3, 4],
             gap: [0, 1, 2, 3, 4],

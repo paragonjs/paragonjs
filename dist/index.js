@@ -15,9 +15,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
-var invariant = require('tiny-invariant');
-
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 function _interopNamespace(e) {
     if (e && e.__esModule) return e;
@@ -38,9 +35,8 @@ function _interopNamespace(e) {
 }
 
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
-var invariant__default = /*#__PURE__*/_interopDefaultLegacy(invariant);
 
-___$insertStyle(".p1-button {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  border-radius: 0.25rem;\n  height: 30px;\n  width: 100px;\n  box-shadow: none;\n  border: none;\n  outline: none;\n  padding: 0.2rem 0.5rem;\n  font-size: 1rem;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  transition: transform 150ms ease;\n}\n.p1-button.p1-fill {\n  width: 100%;\n}\n.p1-button:active {\n  box-shadow: 1px 1px 4px rgba(30, 30, 30, 0.3);\n  transform: translateY(2px);\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.p1-blue {\n  background-color: #0984e3;\n  color: #eaeaea;\n}\n.p1-blue .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-blue .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-blue:hover {\n  background-color: #218ada;\n}\n.p1-blue:active {\n  background-color: #2a7dbd;\n}\n\n.p1-purple {\n  background-color: #6c5ce7;\n  color: #eaeaea;\n}\n.p1-purple .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-purple .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-purple:hover {\n  background-color: #4f3dd9;\n}\n.p1-purple:active {\n  background-color: #3522c2;\n}\n\n.p1-red {\n  background-color: #eb4d4b;\n  color: #eaeaea;\n}\n.p1-red .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-red .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-red:hover {\n  background-color: #e93c39;\n}\n.p1-red:active {\n  background-color: #d6201d;\n}\n\n.p1-yellow {\n  background-color: #fdcb6e;\n  color: #212121;\n}\n.p1-yellow:hover {\n  background-color: #f4bd56;\n}\n.p1-yellow:active {\n  background-color: #e6a937;\n}\n\n.p1-pink {\n  background-color: #e84393;\n  color: #fafafa;\n}\n.p1-pink .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-pink .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-pink:hover {\n  background-color: #cb2e7a;\n}\n.p1-pink:active {\n  background-color: #c3186b;\n}\n\n.p1-green {\n  background-color: #009432;\n  color: #eaeaea;\n}\n.p1-green .p1-spinner .p1-spinner-svg path {\n  stroke: #aaa;\n}\n.p1-green .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-green:hover {\n  background-color: #107f35;\n}\n.p1-green:active {\n  background-color: #1b783a;\n}\n\n.p1-lavander {\n  background-color: #d980fa;\n  color: #fff;\n}\n.p1-lavander:hover {\n  background-color: #ca63f0;\n}\n.p1-lavander:active {\n  background-color: #bc4be5;\n}\n\n.p1-berry {\n  background-color: #b53471;\n  color: #fff;\n}\n.p1-berry .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-berry .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-berry:hover {\n  background-color: #b12466;\n}\n.p1-berry:active {\n  background-color: #a81a5c;\n}");
+___$insertStyle(".p1-button {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  border-radius: 0.25rem;\n  height: 30px;\n  width: 100px;\n  box-shadow: none;\n  border: none;\n  outline: none;\n  padding: 0.2rem 0.5rem;\n  font-size: 1rem;\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  transition: transform 150ms ease;\n}\n.p1-button.p1-fill {\n  width: 100%;\n}\n.p1-button:active {\n  box-shadow: 1px 1px 4px rgba(30, 30, 30, 0.3);\n  transform: translateY(2px);\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.p1-color-blue {\n  background-color: #0984e3;\n  color: #eaeaea;\n}\n.p1-color-blue .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-color-blue .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-blue:hover {\n  background-color: #218ada;\n}\n.p1-color-blue:active {\n  background-color: #2a7dbd;\n}\n.p1-color-purple {\n  background-color: #6c5ce7;\n  color: #eaeaea;\n}\n.p1-color-purple .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-color-purple .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-purple:hover {\n  background-color: #4f3dd9;\n}\n.p1-color-purple:active {\n  background-color: #3522c2;\n}\n.p1-color-red {\n  background-color: #eb4d4b;\n  color: #eaeaea;\n}\n.p1-color-red .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-color-red .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-red:hover {\n  background-color: #e93c39;\n}\n.p1-color-red:active {\n  background-color: #d6201d;\n}\n.p1-color-yellow {\n  background-color: #fdcb6e;\n  color: #212121;\n}\n.p1-color-yellow:hover {\n  background-color: #f4bd56;\n}\n.p1-color-yellow:active {\n  background-color: #e6a937;\n}\n.p1-color-pink {\n  background-color: #e84393;\n  color: #fafafa;\n}\n.p1-color-pink .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-color-pink .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-pink:hover {\n  background-color: #cb2e7a;\n}\n.p1-color-pink:active {\n  background-color: #c3186b;\n}\n.p1-color-green {\n  background-color: #009432;\n  color: #eaeaea;\n}\n.p1-color-green .p1-spinner .p1-spinner-svg path {\n  stroke: #aaa;\n}\n.p1-color-green .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-green:hover {\n  background-color: #107f35;\n}\n.p1-color-green:active {\n  background-color: #1b783a;\n}\n.p1-color-lavander {\n  background-color: #d980fa;\n  color: #fff;\n}\n.p1-color-lavander:hover {\n  background-color: #ca63f0;\n}\n.p1-color-lavander:active {\n  background-color: #bc4be5;\n}\n.p1-color-berry {\n  background-color: #b53471;\n  color: #fff;\n}\n.p1-color-berry .p1-spinner .p1-spinner-svg path {\n  stroke: #888;\n}\n.p1-color-berry .p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: #fff;\n}\n.p1-color-berry:hover {\n  background-color: #b12466;\n}\n.p1-color-berry:active {\n  background-color: #a81a5c;\n}");
 
 ___$insertStyle("@keyframes p1-spinner-animation {\n  0% {\n    -webkit-transform: rotate(0deg);\n    transform: rotate(0deg);\n  }\n  to {\n    -webkit-transform: rotate(1turn);\n    transform: rotate(1turn);\n  }\n}\n.p1-spinner {\n  margin: 0;\n  position: absolute;\n  -webkit-box-align: center;\n  -ms-flex-align: center;\n  -webkit-box-pack: center;\n  -ms-flex-pack: center;\n  align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  justify-content: center;\n  overflow: visible;\n  vertical-align: middle;\n}\n.p1-spinner .p1-spinner-svg {\n  margin: auto;\n  animation: p1-spinner-animation 0.5s linear infinite;\n}\n.p1-spinner .p1-spinner-svg path {\n  fill-opacity: 0;\n}\n.p1-spinner .p1-spinner-svg .p1-spinner-circle {\n  stroke: rgba(95, 107, 124, 0.2);\n}\n.p1-spinner .p1-spinner-svg .p1-spinner-stroke {\n  stroke: rgba(95, 107, 124, 0.8);\n  stroke-linecap: round;\n  -webkit-transform-origin: center;\n  transform-origin: center;\n  -webkit-transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 1, 0.75, 0.9);\n  transition: stroke-dashoffset 0.2s cubic-bezier(0.4, 1, 0.75, 0.9);\n}");
 
@@ -48,8 +44,22 @@ const Spinner = (props) => {
     return (jsxRuntime.jsx("div", { className: "p1-spinner", children: jsxRuntime.jsxs("svg", { ...props, className: `p1-spinner-svg${props.className ? ` ${props.className}` : ""}`, width: "20", height: "20", strokeWidth: "16.00", viewBox: "-3.00 -3.00 106.00 106.00", children: [jsxRuntime.jsx("path", { className: "p1-spinner-circle", d: "M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90" }), jsxRuntime.jsx("path", { className: "p1-spinner-stroke", d: "M 50,50 m 0,-45 a 45,45 0 1 1 0,90 a 45,45 0 1 1 0,-90", pathLength: "280", strokeDasharray: "280 280", strokeDashoffset: "210" })] }) }));
 };
 
+var isProduction = process.env.NODE_ENV === 'production';
+var prefix = 'Invariant failed';
+function invariant(condition, message) {
+    if (condition) {
+        return;
+    }
+    if (isProduction) {
+        throw new Error(prefix);
+    }
+    var provided = typeof message === 'function' ? message() : message;
+    var value = provided ? "".concat(prefix, ": ").concat(provided) : prefix;
+    throw new Error(value);
+}
+
 function useDynamicClassname({ initialClassname, props, dynamicProps, }) {
-    return React.useMemo(() => {
+    return React__namespace.useMemo(() => {
         const classNames = [];
         classNames.push(initialClassname);
         if (props.className)
@@ -58,7 +68,7 @@ function useDynamicClassname({ initialClassname, props, dynamicProps, }) {
             if (props[propName] || props[propName] === 0) {
                 const caller = useDynamicClassname.caller;
                 const name = caller.displayName || caller.name;
-                invariant__default["default"](dynamicProps[propName].includes(props[propName]), `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`);
+                invariant(dynamicProps[propName].includes(props[propName]), `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`);
                 /// Check for number
                 if (typeof props[propName] === "number") {
                     classNames.push(`p1-${propName}-${props[propName]}`);
@@ -69,7 +79,7 @@ function useDynamicClassname({ initialClassname, props, dynamicProps, }) {
                 }
                 /// Check strings
                 else {
-                    classNames.push(`p1-${props[propName]}`);
+                    classNames.push(`p1-${propName}-${props[propName]}`);
                 }
             }
         }
@@ -130,33 +140,72 @@ const NotAsyncButton = () => {
     return (jsxRuntime.jsx("div", { className: "not-async-button", children: jsxRuntime.jsx("h2", { children: state }) }));
 };
 
-___$insertStyle(".p1-row {\n  display: flex;\n}\n.p1-row .fluid {\n  width: 100%;\n}");
+___$insertStyle(".p1-gap-1 {\n  gap: 0.5rem;\n}\n.p1-gap-2 {\n  gap: 1rem;\n}\n.p1-gap-3 {\n  gap: 1.5rem;\n}\n.p1-gap-4 {\n  gap: 2rem;\n}\n.p1-gap-0 {\n  gap: 0;\n}\n.p1-padding-0 {\n  padding: 0;\n}\n.p1-padding-1 {\n  padding: 0.5rem;\n}\n.p1-padding-2 {\n  padding: 1rem;\n}\n.p1-padding-3 {\n  padding: 1.5rem;\n}\n.p1-padding-4 {\n  padding: 2rem;\n}\n.p1-fluid {\n  width: 100%;\n}\n.p1-justify-flex-start {\n  justify-content: flex-start;\n}\n.p1-justify-flex-end {\n  justify-content: flex-end;\n}\n.p1-justify-center {\n  justify-content: center;\n}\n.p1-justify-space-around {\n  justify-content: space-around;\n}\n.p1-justify-space-between {\n  justify-content: space-between;\n}\n.p1-justify-space-evenly {\n  justify-content: space-evenly;\n}\n.p1-justify-stretch {\n  justify-content: stretch;\n}\n.p1-align-flex-start {\n  align-items: flex-start;\n}\n.p1-align-flex-end {\n  align-items: flex-end;\n}\n.p1-align-center {\n  align-items: center;\n}\n.p1-align-baseline {\n  align-items: baseline;\n}\n.p1-align-stretch {\n  align-items: stretch;\n}\n\n.p1-row {\n  display: flex;\n}\n.p1-row.p1-fluid {\n  width: 100%;\n}\n.p1-row.p1-gap-0 {\n  gap: 0;\n}\n.p1-row.p1-gap-1 {\n  gap: 0.5rem;\n}\n.p1-row.p1-gap-2 {\n  gap: 0.5rem;\n}\n.p1-row.p1-gap-3 {\n  gap: 0.5rem;\n}\n.p1-row .p1-gap-4 {\n  gap: 0.5rem;\n}\n.p1-row.p1-padding-0 {\n  padding: 0;\n}\n.p1-row.p1-padding-1 {\n  padding: 0.5rem;\n}\n.p1-row.p1-padding-2 {\n  padding: 1rem;\n}\n.p1-row.p1-padding-3 {\n  padding: 1.5rem;\n}\n.p1-row.p1-padding-4 {\n  padding: 2rem;\n}\n.p1-row.p1-center {\n  align-items: center;\n}\n.p1-row .p1-.gap-1 {\n  gap: 0.5rem;\n}\n.p1-row .p1-.gap-2 {\n  gap: 1rem;\n}\n.p1-row .p1-.gap-3 {\n  gap: 1.5rem;\n}\n.p1-row .p1-.gap-4 {\n  gap: 2rem;\n}\n.p1-row .p1-.gap-0 {\n  gap: 0;\n}\n.p1-row .p1-.padding-0 {\n  padding: 0;\n}\n.p1-row .p1-.padding-1 {\n  padding: 0.5rem;\n}\n.p1-row .p1-.padding-2 {\n  padding: 1rem;\n}\n.p1-row .p1-.padding-3 {\n  padding: 1.5rem;\n}\n.p1-row .p1-.padding-4 {\n  padding: 2rem;\n}\n.p1-row .p1-.fluid {\n  width: 100%;\n}\n.p1-row .p1-.justify-flex-start {\n  justify-content: flex-start;\n}\n.p1-row .p1-.justify-flex-end {\n  justify-content: flex-end;\n}\n.p1-row .p1-.justify-center {\n  justify-content: center;\n}\n.p1-row .p1-.justify-space-around {\n  justify-content: space-around;\n}\n.p1-row .p1-.justify-space-between {\n  justify-content: space-between;\n}\n.p1-row .p1-.justify-space-evenly {\n  justify-content: space-evenly;\n}\n.p1-row .p1-.justify-stretch {\n  justify-content: stretch;\n}\n.p1-row .p1-.align-flex-start {\n  align-items: flex-start;\n}\n.p1-row .p1-.align-flex-end {\n  align-items: flex-end;\n}\n.p1-row .p1-.align-center {\n  align-items: center;\n}\n.p1-row .p1-.align-baseline {\n  align-items: baseline;\n}\n.p1-row .p1-.align-stretch {\n  align-items: stretch;\n}");
 
 const Row = (props) => {
-    const classNames = React__namespace.useMemo(() => {
-        if (props.fluid) {
-            return `p1-row fluid${props.className ? ` ${props.className} ` : ""} `;
-        }
-        return `p1-row${props.className ? ` ${props.className}` : ""}`;
-    }, [props.className, props.fluid]);
-    return jsxRuntime.jsx("div", { ...props, className: classNames });
+    const { className, gap, fluid, justify, align, ...rest } = props;
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-row",
+        props: {
+            className,
+            gap,
+            fluid,
+            justify,
+            align,
+        },
+        dynamicProps: {
+            justify: [
+                "flex-start",
+                "flex-end",
+                "space-around",
+                "space-between",
+                "auto",
+                "center",
+                "space-evenly",
+                "stretch",
+                "unset",
+                "revert",
+            ],
+            align: ["flex-start", "flex-end", "center", "baseline", "stretch", "revert", "unset"],
+            fluid: [false, true],
+            variant: ["light", "dark"],
+            padding: [0, 1, 2, 3, 4],
+            gap: [0, 1, 2, 3, 4],
+        },
+    });
+    return jsxRuntime.jsx("div", { ...rest, className: classNames });
 };
 
-___$insertStyle(".p1-col {\n  display: flex;\n  flex-direction: column;\n}\n.p1-col.p1-gap-1 {\n  gap: 0.5rem;\n}\n.p1-col.p1-gap-2 {\n  gap: 1rem;\n}\n.p1-col.p1-gap-3 {\n  gap: 1.5rem;\n}\n.p1-col.p1-gap-4 {\n  gap: 2rem;\n}\n.p1-col.p1-gap-0 {\n  gap: 0;\n}\n.p1-col .fluid {\n  width: 100%;\n}");
+___$insertStyle(".p1-gap-1 {\n  gap: 0.5rem;\n}\n.p1-gap-2 {\n  gap: 1rem;\n}\n.p1-gap-3 {\n  gap: 1.5rem;\n}\n.p1-gap-4 {\n  gap: 2rem;\n}\n.p1-gap-0 {\n  gap: 0;\n}\n.p1-padding-0 {\n  padding: 0;\n}\n.p1-padding-1 {\n  padding: 0.5rem;\n}\n.p1-padding-2 {\n  padding: 1rem;\n}\n.p1-padding-3 {\n  padding: 1.5rem;\n}\n.p1-padding-4 {\n  padding: 2rem;\n}\n.p1-fluid {\n  width: 100%;\n}\n.p1-justify-flex-start {\n  justify-content: flex-start;\n}\n.p1-justify-flex-end {\n  justify-content: flex-end;\n}\n.p1-justify-center {\n  justify-content: center;\n}\n.p1-justify-space-around {\n  justify-content: space-around;\n}\n.p1-justify-space-between {\n  justify-content: space-between;\n}\n.p1-justify-space-evenly {\n  justify-content: space-evenly;\n}\n.p1-justify-stretch {\n  justify-content: stretch;\n}\n.p1-align-flex-start {\n  align-items: flex-start;\n}\n.p1-align-flex-end {\n  align-items: flex-end;\n}\n.p1-align-center {\n  align-items: center;\n}\n.p1-align-baseline {\n  align-items: baseline;\n}\n.p1-align-stretch {\n  align-items: stretch;\n}\n\n.p1-col {\n  display: flex;\n  flex-direction: column;\n}");
 
 const Column = (props) => {
-    const { className, radius, gap, variant, padding, ...rest } = props;
+    const { className, gap, fluid, variant, padding, justify, align, ...rest } = props;
     const classNames = useDynamicClassname({
         initialClassname: "p1-col",
         props: {
             className,
-            radius,
             gap,
             variant,
             padding,
+            fluid,
+            justify,
+            align,
         },
         dynamicProps: {
-            radius: [0, 1, 2, 3, 4],
+            justify: [
+                "flex-start",
+                "flex-end",
+                "space-around",
+                "space-between",
+                "auto",
+                "center",
+                "space-evenly",
+                "stretch",
+                "unset",
+                "revert",
+            ],
+            align: ["flex-start", "flex-end", "center", "baseline", "stretch", "revert", "unset"],
+            fluid: [false, true],
             variant: ["light", "dark"],
             padding: [0, 1, 2, 3, 4],
             gap: [0, 1, 2, 3, 4],
@@ -189,7 +238,7 @@ const Card = (props) => {
     return jsxRuntime.jsx("div", { ...rest, className: classNames });
 };
 
-___$insertStyle(".p1-navbar {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 1rem 2rem;\n  gap: 0.25rem;\n  box-sizing: border-box;\n}\n.p1-navbar.p1-vertical {\n  padding: 2rem 2rem;\n  width: 20vw;\n  flex-direction: column;\n  gap: 1rem;\n}\n.p1-navbar.p1-vertical.p1-centered {\n  justify-content: center;\n}\n.p1-navbar.p1-vertical.p1-centered .p1-navbar-collapse {\n  flex: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  flex-direction: column;\n  gap: 1rem;\n  flex-basis: unset;\n  text-align: left;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-right {\n  align-items: flex-end;\n  justify-content: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-left {\n  align-items: flex-start;\n  justify-content: unset;\n}\n.p1-navbar .p1-navbar-collapse.p1-right {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar .p1-navbar-collapse.p1-left {\n  align-items: center;\n  justify-content: flex-end;\n}\n.p1-navbar.p1-horizontal {\n  flex-direction: row;\n}\n@media (min-width: 768px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 992px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 1200px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}");
+___$insertStyle(".p1-navbar {\n  display: flex;\n  flex-wrap: wrap;\n  padding: 1rem 2rem;\n  gap: 0.25rem;\n  box-sizing: border-box;\n  height: auto;\n  align-items: center;\n  justify-content: center;\n}\n.p1-navbar.p1-variant-dark {\n  background: #131417;\n  color: #fff;\n}\n.p1-navbar.p1-variant-dark .p1-navbar-toggler {\n  background: #131417;\n  color: #fff;\n}\n.p1-navbar.p1-variant-light {\n  background: #fff;\n  color: #111;\n}\n.p1-navbar.p1-vertical {\n  padding: 2rem 2rem;\n  width: 20vw;\n  flex-direction: column;\n  gap: 1rem;\n}\n.p1-navbar.p1-vertical.p1-centered {\n  justify-content: center;\n}\n.p1-navbar.p1-vertical.p1-centered .p1-navbar-collapse {\n  flex: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  flex-direction: column;\n  gap: 1rem;\n  flex-basis: unset;\n  text-align: left;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-right {\n  align-items: flex-end;\n  justify-content: unset;\n}\n.p1-navbar.p1-vertical .p1-navbar-collapse.p1-left {\n  align-items: flex-start;\n  justify-content: unset;\n}\n.p1-navbar .p1-navbar-collapse.p1-right {\n  align-items: flex-start;\n  justify-content: center;\n}\n.p1-navbar .p1-navbar-collapse.p1-left {\n  align-items: flex-start;\n  justify-content: center;\n}\n@media (min-width: 768px) {\n  .p1-navbar .p1-navbar-collapse.p1-right {\n    align-items: center;\n    justify-content: flex-end;\n  }\n  .p1-navbar .p1-navbar-collapse.p1-left {\n    align-items: center;\n    justify-content: flex-start;\n  }\n}\n.p1-navbar.p1-horizontal {\n  flex-direction: row;\n}\n@media (min-width: 768px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 992px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}\n@media (min-width: 1200px) {\n  .p1-navbar {\n    padding: 1rem 3rem;\n  }\n}");
 
 ___$insertStyle(".p1-navbar-heading {\n  font-size: 24px;\n}\n.p1-navbar-heading.small {\n  font-size: 16px;\n}\n.p1-navbar-heading.medium {\n  font-size: 24px;\n}\n.p1-navbar-heading.large {\n  font-size: 32px;\n}");
 
@@ -213,13 +262,14 @@ const NavLink = (props) => {
     return (jsxRuntime.jsx("div", { ...props, className: `p1-navbar-link${props.className ? ` ${props.className}` : ""}` }));
 };
 
-___$insertStyle(".p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  width: 100%;\n  flex-basis: 100%;\n  gap: 12px;\n  flex-direction: column;\n  flex: 1;\n  flex-basis: 100%;\n}\n.p1-navbar-collapse.left {\n  justify-content: flex-start;\n}\n.p1-navbar-collapse.right {\n  justify-content: flex-end;\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse {\n    display: flex;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-show {\n    display: flex;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n    align-items: flex-start;\n    padding: 1rem 0;\n    height: auto;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-hide {\n    overflow: hidden;\n    flex: 1;\n    flex-basis: 100%;\n    width: 100vw;\n    min-width: 100vw;\n    height: 0px;\n  }\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse {\n    flex-direction: row;\n    flex: 1;\n    display: flex !important;\n    height: 100% !important;\n    align-items: center;\n  }\n}");
+___$insertStyle(".p1-navbar-collapse {\n  display: flex;\n  height: auto;\n  width: 100%;\n  flex-basis: 100%;\n  gap: 12px;\n  flex-direction: column;\n  flex: 1;\n  flex-basis: 100%;\n  overflow: hidden;\n  z-index: 0;\n}\n.p1-navbar-collapse.p1-position-left {\n  align-items: flex-end;\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse.p1-position-left {\n    justify-content: flex-start;\n  }\n}\n.p1-navbar-collapse.p1-position-right {\n  align-items: flex-start;\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse.p1-position-right {\n    justify-content: flex-end;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse {\n    box-sizing: border-box;\n    display: flex;\n    padding: 2rem 2rem;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-show {\n    display: flex;\n    width: 100vw;\n    min-width: 100vw;\n    flex: 1;\n    flex-basis: 100%;\n    align-items: flex-start;\n    padding: 1rem 0;\n    height: auto;\n  }\n}\n@media (max-width: 767.98px) {\n  .p1-navbar-collapse.navbar-collapse-hide {\n    overflow: hidden;\n    flex: 1;\n    flex-basis: 100%;\n    width: 100vw;\n    min-width: 100vw;\n    height: 0px;\n  }\n}\n@media (min-width: 768px) {\n  .p1-navbar-collapse {\n    flex-direction: row;\n    flex: 1;\n    display: flex !important;\n    height: 100% !important;\n    align-items: center;\n  }\n}");
 
 var EnumerableNavbarActions$1;
 (function (EnumerableNavbarActions) {
     EnumerableNavbarActions["SET_COLLAPSER"] = "SET_COLLAPSER";
     EnumerableNavbarActions["SET_TOGGLER"] = "SET_TOGGLER";
     EnumerableNavbarActions["SET_COLLAPSER_HEIGHT"] = "SET_COLLAPSER_HEIGHT";
+    EnumerableNavbarActions["SET_EXPANDED"] = "SET_EXPANDED";
 })(EnumerableNavbarActions$1 || (EnumerableNavbarActions$1 = {}));
 const NavbarReducer = (state, action) => {
     switch (action.type) {
@@ -238,6 +288,11 @@ const NavbarReducer = (state, action) => {
                 ...state,
                 collapserHeight: action.payload,
             };
+        case EnumerableNavbarActions$1.SET_EXPANDED:
+            return {
+                ...state,
+                expanded: action.payload,
+            };
         default: {
             return {
                 ...state,
@@ -250,6 +305,7 @@ const initial$1 = {
     collapser: null,
     toggler: null,
     collapserHeight: 0,
+    expanded: false,
 };
 const NavbarContext = React__namespace.createContext([
     initial$1,
@@ -261,93 +317,6 @@ const NavbarProvider = ({ children }) => {
     const [state, dispatch] = React__namespace.useReducer(NavbarReducer, initial$1);
     return jsxRuntime.jsx(NavbarContext.Provider, { value: [state, dispatch], children: children });
 };
-
-var EnumerableNavbarActions;
-(function (EnumerableNavbarActions) {
-    EnumerableNavbarActions["SET_COLLAPSER"] = "SET_COLLAPSER";
-    EnumerableNavbarActions["SET_TOGGLER"] = "SET_TOGGLER";
-    EnumerableNavbarActions["SET_COLLAPSER_HEIGHT"] = "SET_COLLAPSER_HEIGHT";
-})(EnumerableNavbarActions || (EnumerableNavbarActions = {}));
-const animationFrames = 30;
-const animationLength = 300;
-function useNavbarContext() {
-    const [state, dispatch] = React.useContext(NavbarContext);
-    const setToggler = React.useCallback((element) => {
-        dispatch({
-            type: EnumerableNavbarActions.SET_TOGGLER,
-            payload: element,
-        });
-    }, [dispatch]);
-    const setCollapser = React.useCallback((element) => {
-        dispatch({
-            type: EnumerableNavbarActions.SET_COLLAPSER,
-            payload: element,
-        });
-    }, [dispatch]);
-    const setCollapserHeight = React.useCallback((height) => {
-        dispatch({
-            type: EnumerableNavbarActions.SET_COLLAPSER_HEIGHT,
-            payload: height,
-        });
-    }, [dispatch]);
-    const collapseAnimation = React.useCallback(() => {
-        const { collapser, collapserHeight } = state;
-        /**
-         * If height is zero, we expand
-         */
-        if (collapser.style.height === "0px") {
-            /**
-             *
-             * Add flex before expanding.
-             */
-            collapser.style.display = "flex";
-            /**
-             * Create a loop which will iterate {frames} times.
-             */
-            Array(animationFrames)
-                .fill(0)
-                .forEach((item, i) => {
-                /**
-                 * Timeout is based on frame-rate
-                 */
-                setTimeout(() => {
-                    collapser.style.height =
-                        i === animationFrames - 1
-                            ? `${collapserHeight}px`
-                            : `${(collapserHeight / animationFrames) * i}px`;
-                }, (animationLength / animationFrames) * i);
-            });
-        }
-        else {
-            Array(animationFrames)
-                .fill(0)
-                .forEach((item, i) => {
-                setTimeout(() => {
-                    if (i === animationFrames - 1) {
-                        /**
-                         * Force 0px on final iteration, this helps mitigate small discrepancies in rounding.
-                         */
-                        collapser.style.height = `0px`;
-                        /**
-                         * Display is set to none as the final action of the loop.
-                         */
-                        collapser.style.display = "none";
-                    }
-                    else {
-                        collapser.style.height = `${collapserHeight - (collapserHeight / animationFrames) * i}px`;
-                    }
-                }, (animationLength / animationFrames) * i);
-            });
-        }
-    }, [state]);
-    return {
-        ...state,
-        setCollapser,
-        setToggler,
-        setCollapserHeight,
-        collapseAnimation,
-    };
-}
 
 /**
  * Returns the owner document of a given element.
@@ -427,6 +396,15 @@ function style(node, property) {
   node.style.cssText += ";" + css;
 }
 
+var EnumerableNavbarActions;
+(function (EnumerableNavbarActions) {
+    EnumerableNavbarActions["SET_COLLAPSER"] = "SET_COLLAPSER";
+    EnumerableNavbarActions["SET_TOGGLER"] = "SET_TOGGLER";
+    EnumerableNavbarActions["SET_COLLAPSER_HEIGHT"] = "SET_COLLAPSER_HEIGHT";
+    EnumerableNavbarActions["SET_EXPANDED"] = "SET_EXPANDED";
+})(EnumerableNavbarActions || (EnumerableNavbarActions = {}));
+const animationFrames = 30;
+const animationLength = 300;
 const MARGINS = {
     height: ["marginTop", "marginBottom"],
     width: ["marginLeft", "marginRight"],
@@ -438,9 +416,148 @@ function getDefaultDimensionValue(dimension, elem) {
     // @ts-ignore
     return value + parseInt(style(elem, margins[0]), 10) + parseInt(style(elem, margins[1]), 10);
 }
+function useNavbarContext() {
+    const [state, dispatch] = React__namespace.useContext(NavbarContext);
+    /**
+     * Context mutation methods
+     */
+    const setToggler = React__namespace.useCallback((element) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_TOGGLER,
+            payload: element,
+        });
+    }, [dispatch]);
+    const setCollapser = React__namespace.useCallback((element) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_COLLAPSER,
+            payload: element,
+        });
+    }, [dispatch]);
+    const setCollapserHeight = React__namespace.useCallback((height) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_COLLAPSER_HEIGHT,
+            payload: height,
+        });
+    }, [dispatch]);
+    const setExpanded = React__namespace.useCallback((_expanded) => {
+        dispatch({
+            type: EnumerableNavbarActions.SET_EXPANDED,
+            payload: _expanded,
+        });
+    }, [dispatch]);
+    /**
+     *
+     * Observer for collapsable navigation bar. Since there it's quite difficult to fluidly resize the navigation bar like an accordion with just css,
+     * this helps setup the navigation state and styles to allow for a very smooth looking expand.
+     *
+     */
+    const observerCallback = React__namespace.useCallback(() => {
+        /**
+         * Checks the client width on every observe; This ensures that if the client width is expanded beyond the mobile parameters that
+         * the navbar immediately sets its styles correctly.
+         */
+        const clientWidth = Math.max(document.body.clientWidth, document.documentElement.clientWidth);
+        if (state.collapser) {
+            if (clientWidth > 768) {
+                state.collapser.style.padding = "0px 0px";
+            }
+            else {
+                state.collapser.style.display = "flex";
+                state.collapser.style.height = "auto";
+                state.collapser.style.padding = "2rem 2rem";
+                setCollapserHeight(Math.ceil(getDefaultDimensionValue("height", state.collapser)));
+                if (!state.expanded) {
+                    state.collapser.style.display = "none";
+                    state.collapser.style.height = "0px";
+                    state.collapser.style.padding = "0px 2rem";
+                }
+            }
+        }
+    }, [setCollapserHeight, state.collapser, state.expanded]);
+    /**
+     *
+     * Collapse animation; This animation has only 30 frames which it animtes over a period of 300ms.
+     * Despite the low amount of overall frames, it looks incredibly smooth at virtually any height.
+     *
+     */
+    const collapseAnimation = React__namespace.useCallback(() => {
+        const { expanded, collapser, collapserHeight } = state;
+        /**
+         * If height is zero, we expand
+         */
+        if (expanded) {
+            Array(animationFrames)
+                .fill(0)
+                .forEach((item, i) => {
+                setTimeout(() => {
+                    if (i === animationFrames - 1) {
+                        /**
+                         * Force 0px on final iteration, this helps mitigate small discrepancies in rounding.
+                         */
+                        collapser.style.height = `0px`;
+                        collapser.style.padding = `0rem 2rem`;
+                        /**
+                         * Display is set to none as the final action of the loop.
+                         */
+                        collapser.style.display = "none";
+                        setExpanded(false);
+                    }
+                    else {
+                        collapser.style.height = `${collapserHeight - (collapserHeight / animationFrames) * i}px`;
+                        collapser.style.padding = `${2 - (2 / animationFrames) * i}rem 2rem`;
+                    }
+                }, (animationLength / animationFrames) * i);
+            });
+        }
+        else {
+            /**
+             *
+             * Add flex before expanding.
+             */
+            collapser.style.display = "flex";
+            /**
+             * Create a loop which will iterate {frames} times.
+             */
+            Array(animationFrames)
+                .fill(0)
+                .forEach((item, i) => {
+                /**
+                 * Timeout is based on frame-rate
+                 */
+                setTimeout(() => {
+                    if (i === animationFrames - 1) {
+                        collapser.style.height = `${collapserHeight}px`;
+                        collapser.style.padding = `2rem 2rem`;
+                        setExpanded(true);
+                    }
+                    else {
+                        collapser.style.height = `${(collapserHeight / animationFrames) * i}px`;
+                        collapser.style.padding = `${(2 / animationFrames) * i}rem 2rem`;
+                    }
+                }, (animationLength / animationFrames) * i);
+            });
+        }
+    }, [state, setExpanded]);
+    const observer = React__namespace.useMemo(() => new ResizeObserver(observerCallback), [observerCallback]);
+    React__namespace.useEffect(() => {
+        observer.observe(document.body);
+        return () => {
+            observer.unobserve(document.body);
+        };
+    }, [observer]);
+    return {
+        ...state,
+        setExpanded,
+        setCollapser,
+        setToggler,
+        setCollapserHeight,
+        collapseAnimation,
+    };
+}
+
 const NavbarCollapse = (props) => {
     const { position, className, ...rest } = props;
-    const { setCollapserHeight, setCollapser } = useNavbarContext();
+    const { setCollapser } = useNavbarContext();
     const ref = React__namespace.useRef();
     const classNames = useDynamicClassname({
         initialClassname: "p1-navbar-collapse",
@@ -457,11 +574,6 @@ const NavbarCollapse = (props) => {
             setCollapser(ref.current);
         }
     }, [ref, setCollapser]);
-    React__namespace.useEffect(() => {
-        if (ref && ref.current) {
-            setCollapserHeight(Math.ceil(getDefaultDimensionValue("height", ref.current)));
-        }
-    }, [ref, setCollapserHeight]);
     return jsxRuntime.jsx("div", { ...rest, ref: ref, id: "p1-navbar-collapse", className: classNames });
 };
 NavbarCollapse.displayName = "NavbarCollapse";
@@ -470,12 +582,7 @@ ___$insertStyle(".p1-navbar-toggler {\n  display: block;\n  margin-left: auto;\n
 
 const NavbarToggler = (props) => {
     const { setToggler, toggler, collapseAnimation } = useNavbarContext();
-    const [show, setShow] = React__namespace.useState(false);
     const ref = React__namespace.useRef();
-    const handleClick = () => {
-        document.querySelectorAll(".p1-navbar-collapse");
-        setShow(!show);
-    };
     React__namespace.useEffect(() => {
         if (ref && ref.current) {
             setToggler(ref.current);
@@ -485,8 +592,13 @@ const NavbarToggler = (props) => {
         if (toggler) {
             toggler.addEventListener("click", collapseAnimation);
         }
+        return () => {
+            if (toggler) {
+                toggler.removeEventListener("click", collapseAnimation);
+            }
+        };
     }, [toggler, collapseAnimation]);
-    return (jsxRuntime.jsx("button", { ref: ref, className: `p1-navbar-toggler ${props.className ? ` ${props.className}` : ""}`, type: "button", "data-toggle": "collapse", "data-target": "p1-navbar-collapse", onClick: handleClick, children: "\u2630" }));
+    return (jsxRuntime.jsx("button", { ref: ref, className: `p1-navbar-toggler ${props.className ? ` ${props.className}` : ""}`, type: "button", "data-toggle": "collapse", "data-target": "p1-navbar-collapse", children: "\u2630" }));
 };
 NavbarToggler.displayName = "NavbarToggler";
 
@@ -638,7 +750,7 @@ var ToasterActions;
  *
  */
 function useToaster() {
-    const [state, dispatch] = React.useContext(ToastContext);
+    const [state, dispatch] = React__namespace.useContext(ToastContext);
     const { toasts } = state;
     function createToast(message, type = "default") {
         const toastKey = Math.floor(Math.random() * (999999999999 - 1) + 1).toString();
@@ -2685,10 +2797,10 @@ var createPopper = /*#__PURE__*/popperGenerator({
   defaultModifiers: defaultModifiers
 }); // eslint-disable-next-line import/no-unused-modules
 
-___$insertStyle("#popper {\n  height: 30px;\n  width: 200px;\n  background: black;\n  color: white;\n}\n\n#p1-popover-arrow,\n#p1-popover-arrow::before {\n  position: absolute;\n  width: 8px;\n  height: 8px;\n  background: inherit;\n}\n\n#p1-popover-arrow {\n  visibility: hidden;\n}\n\n#p1-popover-arrow::before {\n  visibility: visible;\n  content: \"\";\n  transform: rotate(45deg);\n}\n\n#p1-tooltip[data-popper-placement^=top] > #p1-popover-arrow {\n  bottom: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=bottom] > #p1-popover-arrow {\n  top: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=left] > #p1-popover-arrow {\n  right: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=right] > #p1-popover-arrow {\n  left: -3px;\n}");
+___$insertStyle("#p1-popover-arrow,\n#p1-popover-arrow::before {\n  position: absolute;\n  width: 16px;\n  height: 16px;\n  background: inherit;\n  background: white;\n  z-index: -1;\n}\n\n#p1-popover-arrow {\n  visibility: hidden;\n}\n\n#p1-popover-arrow::before {\n  visibility: visible;\n  content: \"\";\n  transform: rotate(45deg);\n}\n\n#p1-tooltip[data-popper-placement^=top] > #p1-popover-arrow {\n  bottom: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=bottom] > #p1-popover-arrow {\n  top: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=left] > #p1-popover-arrow {\n  right: -4px;\n}\n\n#p1-tooltip[data-popper-placement^=right] > #p1-popover-arrow {\n  left: -3px;\n}");
 
 const Popover = (props) => {
-    const { element, placement = "auto", arrow = false, children, ...rest } = props;
+    const { element, placement = "auto", arrow = false, strategy, children, ...rest } = props;
     React__namespace.useEffect(() => {
         const popper = document.querySelector("#p1-tooltip");
         /**
@@ -2700,16 +2812,16 @@ const Popover = (props) => {
             return null;
         }
         const elementClass = children.props.className;
-        const arrow = document.querySelector("#p1-popover-arrow");
-        const element = document.querySelector(`.${elementClass}`);
-        createPopper(element, popper, {
+        const arrowComponent = document.querySelector("#p1-popover-arrow");
+        const elementComponent = document.querySelector(`.${elementClass}`);
+        createPopper(elementComponent, popper, {
             placement: placement ? placement : "auto",
-            strategy: "absolute",
+            strategy: strategy,
             modifiers: [
                 {
                     name: "arrow",
                     options: {
-                        element: arrow,
+                        element: arrowComponent,
                         placement: "top",
                         padding: 12,
                     },
@@ -2717,12 +2829,12 @@ const Popover = (props) => {
                 {
                     name: "offset",
                     options: {
-                        offset: [0, 4],
+                        offset: [0, 8],
                     },
                 },
             ],
         });
-    }, [children, placement]);
+    }, [children, placement, strategy]);
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [children, jsxRuntime.jsxs("div", { id: "p1-tooltip", className: "p1-tooltip", ...rest, children: [jsxRuntime.jsx(jsxRuntime.Fragment, { children: element }), jsxRuntime.jsx("div", { id: "p1-popover-arrow", "data-popper-arrow": true, style: { display: arrow ? "flex" : "none" } })] })] }));
 };
 

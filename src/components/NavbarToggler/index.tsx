@@ -3,29 +3,13 @@ import useNavbarContext from "../../hooks/useNavbarContext";
 import "./index.scss";
 
 export interface NavbarTogglerProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLInputElement>, HTMLDivElement> {
     color?: string;
 }
 
-const animationFrames = 30;
-const animationLength = 300;
-
 const NavbarToggler: React.FC<NavbarTogglerProps> = (props: NavbarTogglerProps) => {
     const { setToggler, toggler, collapseAnimation } = useNavbarContext();
-    const [show, setShow] = React.useState<boolean>(false);
     const ref = React.useRef<HTMLButtonElement>();
-
-    const handleClick = () => {
-        const navs = document.querySelectorAll(".p1-navbar-collapse");
-        if (show) {
-            //navs.forEach((nav) => nav.classList.add("navbar-collapse-hide"));
-            //navs.forEach((nav) => nav.classList.remove("navbar-collapse-show"));
-        } else {
-            //navs.forEach((nav) => nav.classList.remove("navbar-collapse-hide"));
-            //navs.forEach((nav) => nav.classList.add("navbar-collapse-show"));
-        }
-        setShow(!show);
-    };
 
     React.useEffect(() => {
         if (ref && ref.current) {
@@ -37,6 +21,12 @@ const NavbarToggler: React.FC<NavbarTogglerProps> = (props: NavbarTogglerProps) 
         if (toggler) {
             toggler.addEventListener("click", collapseAnimation);
         }
+
+        return () => {
+            if (toggler) {
+                toggler.removeEventListener("click", collapseAnimation);
+            }
+        };
     }, [toggler, collapseAnimation]);
 
     return (
@@ -46,7 +36,6 @@ const NavbarToggler: React.FC<NavbarTogglerProps> = (props: NavbarTogglerProps) 
             type="button"
             data-toggle="collapse"
             data-target="p1-navbar-collapse"
-            onClick={handleClick}
         >
             &#9776;
         </button>

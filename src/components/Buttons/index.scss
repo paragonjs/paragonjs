@@ -29,164 +29,168 @@
     }
 }
 
-.p1-blue {
-    background-color: #0984e3;
-    color: #eaeaea;
+.p1- {
+    &color- {
+        &blue {
+            background-color: #0984e3;
+            color: #eaeaea;
 
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #888;
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #888;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
             }
-            .p1-spinner-stroke {
-                stroke: #fff;
+
+            &:hover {
+                background-color: #218ada;
             }
-        }
-    }
-
-    &:hover {
-        background-color: #218ada;
-    }
-    &:active {
-        background-color: #2a7dbd;
-    }
-}
-
-.p1-purple {
-    background-color: #6c5ce7;
-    color: #eaeaea;
-
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #888;
-            }
-            .p1-spinner-stroke {
-                stroke: #fff;
+            &:active {
+                background-color: #2a7dbd;
             }
         }
-    }
 
-    &:hover {
-        background-color: #4f3dd9;
-    }
+        &purple {
+            background-color: #6c5ce7;
+            color: #eaeaea;
 
-    &:active {
-        background-color: #3522c2;
-    }
-}
-
-.p1-red {
-    background-color: #eb4d4b;
-    color: #eaeaea;
-
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #888;
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #888;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
             }
-            .p1-spinner-stroke {
-                stroke: #fff;
+
+            &:hover {
+                background-color: #4f3dd9;
             }
-        }
-    }
 
-    &:hover {
-        background-color: #e93c39;
-    }
-    &:active {
-        background-color: #d6201d;
-    }
-}
-
-.p1-yellow {
-    background-color: #fdcb6e;
-    color: #212121;
-
-    &:hover {
-        background-color: #f4bd56;
-    }
-    &:active {
-        background-color: #e6a937;
-    }
-}
-
-.p1-pink {
-    background-color: #e84393;
-    color: #fafafa;
-
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #888;
-            }
-            .p1-spinner-stroke {
-                stroke: #fff;
+            &:active {
+                background-color: #3522c2;
             }
         }
-    }
 
-    &:hover {
-        background-color: #cb2e7a;
-    }
-    &:active {
-        background-color: #c3186b;
-    }
-}
+        &red {
+            background-color: #eb4d4b;
+            color: #eaeaea;
 
-.p1-green {
-    background-color: #009432;
-    color: #eaeaea;
-
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #aaa;
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #888;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
             }
-            .p1-spinner-stroke {
-                stroke: #fff;
+
+            &:hover {
+                background-color: #e93c39;
             }
-        }
-    }
-
-    &:hover {
-        background-color: #107f35;
-    }
-    &:active {
-        background-color: #1b783a;
-    }
-}
-
-.p1-lavander {
-    background-color: #d980fa;
-    color: #fff;
-
-    &:hover {
-        background-color: #ca63f0;
-    }
-    &:active {
-        background-color: #bc4be5;
-    }
-}
-
-.p1-berry {
-    background-color: #b53471;
-    color: #fff;
-
-    .p1-spinner {
-        .p1-spinner-svg {
-            path {
-                stroke: #888;
-            }
-            .p1-spinner-stroke {
-                stroke: #fff;
+            &:active {
+                background-color: #d6201d;
             }
         }
-    }
-    &:hover {
-        background-color: #b12466;
-    }
-    &:active {
-        background-color: #a81a5c;
+
+        &yellow {
+            background-color: #fdcb6e;
+            color: #212121;
+
+            &:hover {
+                background-color: #f4bd56;
+            }
+            &:active {
+                background-color: #e6a937;
+            }
+        }
+
+        &pink {
+            background-color: #e84393;
+            color: #fafafa;
+
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #888;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #cb2e7a;
+            }
+            &:active {
+                background-color: #c3186b;
+            }
+        }
+
+        &green {
+            background-color: #009432;
+            color: #eaeaea;
+
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #aaa;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
+            }
+
+            &:hover {
+                background-color: #107f35;
+            }
+            &:active {
+                background-color: #1b783a;
+            }
+        }
+
+        &lavander {
+            background-color: #d980fa;
+            color: #fff;
+
+            &:hover {
+                background-color: #ca63f0;
+            }
+            &:active {
+                background-color: #bc4be5;
+            }
+        }
+
+        &berry {
+            background-color: #b53471;
+            color: #fff;
+
+            .p1-spinner {
+                .p1-spinner-svg {
+                    path {
+                        stroke: #888;
+                    }
+                    .p1-spinner-stroke {
+                        stroke: #fff;
+                    }
+                }
+            }
+            &:hover {
+                background-color: #b12466;
+            }
+            &:active {
+                background-color: #a81a5c;
+            }
+        }
     }
 }
