@@ -18,13 +18,15 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
     React.useEffect(() => {
         const element = document.querySelector(`.toast-key${key}`);
 
-        setTimeout(function () {
-            element.classList.add("p1-fade");
+        if (element) {
+            setTimeout(function () {
+                element.classList.add("p1-fade");
 
-            setTimeout(() => {
-                removeToast(key.toString());
-            }, expiresAfter - fadesAfter);
-        }, expiresAfter);
+                setTimeout(() => {
+                    removeToast(key.toString());
+                }, expiresAfter - fadesAfter);
+            }, expiresAfter);
+        }
     }, [key, removeToast, expiresAfter, fadesAfter]);
 
     return (

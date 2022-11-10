@@ -9,7 +9,7 @@ export interface NavbarTogglerProps
 
 const NavbarToggler: React.FC<NavbarTogglerProps> = (props: NavbarTogglerProps) => {
     const { setToggler, toggler, collapseAnimation } = useNavbarContext();
-    const ref = React.useRef<HTMLButtonElement>();
+    const ref = React.useRef<HTMLButtonElement>(null);
 
     React.useEffect(() => {
         if (ref && ref.current) {

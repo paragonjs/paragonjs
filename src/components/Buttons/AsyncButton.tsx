@@ -2,9 +2,10 @@ import * as React from "react";
 import "./index.scss";
 import Spinner from "../Spinner";
 import useDynamicClassname from "../../hooks/useDynamicClassname";
+import invariant from "tiny-invariant";
 
 const AsyncButton: React.FC<AsyncButtonProps> = (props: AsyncButtonProps): JSX.Element => {
-    const [_loading, _setLoading] = React.useState<boolean>(props.loading);
+    const [_loading, _setLoading] = React.useState<boolean>(props.loading ? props.loading : false);
     const { color, className, fill, loading, ...rest } = props;
 
     const classNames = useDynamicClassname({
@@ -23,6 +24,10 @@ const AsyncButton: React.FC<AsyncButtonProps> = (props: AsyncButtonProps): JSX.E
 
     async function handleClick(): Promise<void> {
         try {
+            invariant(
+                props.onClick !== undefined,
+                "Prop 'onClick' on component <AsyncButton> must be set to a callable function."
+            );
             _setLoading(true);
             await props.onClick();
             _setLoading(false);

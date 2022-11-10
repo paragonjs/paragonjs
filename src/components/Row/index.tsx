@@ -28,7 +28,6 @@ const Row: React.FC<RowProps> = (props: RowProps) => {
             ],
             align: ["flex-start", "flex-end", "center", "baseline", "stretch", "revert", "unset"],
             fluid: [false, true],
-            variant: ["light", "dark"],
             padding: [0, 1, 2, 3, 4],
             gap: [0, 1, 2, 3, 4],
         },

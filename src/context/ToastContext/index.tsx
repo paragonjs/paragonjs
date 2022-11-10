@@ -1,7 +1,7 @@
 import * as React from "react";
 import ToastReducer from "./reducer";
 
-const initial = {
+const initial: ToastState = {
     toasts: [],
 };
 

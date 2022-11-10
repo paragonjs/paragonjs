@@ -2,12 +2,11 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     onClick?: (...args: any) => void;
     color?: "blue" | "red" | "green" | "yellow" | "pink" | "purple" | "lavander" | "berry";
     fill?: boolean;
-    children: React.ReactNode;
 }
 
-type LFive = 0 | 1 | 2 | 3 | 4;
+type ZeroToFive = 0 | 1 | 2 | 3 | 4;
 
-type justifyContentOptions =
+type JustifyContentOptions =
     | "flex-start"
     | "flex-end"
     | "space-around"
@@ -19,7 +18,7 @@ type justifyContentOptions =
     | "unset"
     | "revert";
 
-type alignItemsOptions =
+type AlignItemsOptions =
     | "flex-start"
     | "flex-end"
     | "center"
@@ -28,7 +27,16 @@ type alignItemsOptions =
     | "revert"
     | "unset";
 
-interface AsyncButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, ButtonProps {
+
+interface ContainerProps {
+    justify: JustifyContentOptions;
+    align: AlignItemsOptions;
+    padding: ZeroToFive;
+    gap: ZeroToFive;
+    fluid: boolean;
+}
+
+interface AsyncButtonProps extends ButtonProps {
     onClick?: (...args: any) => Promise<any>;
     loading?: boolean;
 }
@@ -36,32 +44,21 @@ interface AsyncButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>
 interface CardProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     color?: string;
-    elevation: LFive;
-    radius: LFive;
+    elevation: ZeroToFive;
+    radius: ZeroToFive;
     variant?: "light" | "dark";
-    padding: LFive;
+    padding: ZeroToFive;
 }
 
 interface ColumnProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    fluid: boolean;
-    justify: justifyContentOptions;
-    align: alignItemsOptions;
-    padding: LFive;
-    variant: "light" | "dark";
-    gap: LFive;
-}
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+        ContainerProps {}
 
 interface RowProps
-    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    fluid: boolean;
-    justify: justifyContentOptions;
-    align: alignItemsOptions;
-    padding: LFive;
-    gap: LFive;
-}
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
+        ContainerProps {}
 
-interface SpinnerProps extends React.SVGProps<undefined> {
+interface SpinnerProps extends React.HTMLAttributes<HTMLOrSVGElement> {
     fill?: string;
 }
 
@@ -81,15 +78,20 @@ interface NavbarTogglerProps
     color?: string;
 }
 
+interface NavbarLinkProps
+    extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+    variant?: string;
+}
+
 interface NavbarProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     variant?: "light" | "dark";
-    Heading?: typeof NavHeading;
+    direction?: "vertical" | "horizontal";
+    centered?: boolean;
+    Heading?: React.FC<NavbarHeadingProps>;
     Collapse?: React.FC<NavbarCollapseProps>;
     Link?: React.FC<NavbarLinkProps>;
     Toggler?: React.FC<NavbarTogglerProps>;
-    direction?: "vertical" | "horizontal";
-    centered?: boolean;
 }
 
 /**
@@ -124,7 +126,7 @@ type ToastActions = {
     };
 }[keyof ToastActionArgs];
 
-enum ToasterActions {
+declare enum ToasterActions {
     CREATE_TOAST = "CREATE_TOAST",
     REMOVE_TOAST = "REMOVE_TOAST",
     REMOVE_TOAST_AT_INDEX = "REMOVE_TOAST_AT_INDEX",
@@ -135,22 +137,9 @@ interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     expiresAfter?: number;
     fadesAfter?: number;
-    fallAnimation?: AnimeAnimation;
-    fadeAnimation?: AnimeAnimation;
 }
 
 type ToastContextInterface = [ToastState, React.Dispatch<ToastActions>];
-
-type AnimeTarget = string | object | HTMLElement | SVGElement | NodeList | null;
-
-interface AnimeAnimation extends anime.AnimeParams {
-    targets?: AnimeTarget;
-    keyframes?: Array<anime.AnimeAnimParams>;
-    duration?: number;
-    direction?: "normal" | "alternate";
-    easing?: anime.AnimeParams["easing"];
-    loop?: boolean;
-}
 
 /**
  *
@@ -167,12 +156,13 @@ interface NavbarState {
 
 type NavbarContextInterface = [NavbarState, React.Dispatch<NavbarActions>];
 
-enum EnumerableNavbarActions {
+declare enum EnumerableNavbarActions {
     SET_COLLAPSER = "SET_COLLAPSER",
     SET_TOGGLER = "SET_TOGGLER",
     SET_COLLAPSER_HEIGHT = "SET_COLLAPSER_HEIGHT",
     SET_EXPANDED = "SET_EXPANDED",
 }
+
 interface NavbarActionsArgs {
     SET_COLLAPSER: HTMLElement;
     SET_TOGGLER: HTMLElement;
@@ -186,3 +176,8 @@ type NavbarActions = {
         payload: NavbarActionsArgs[Key];
     };
 }[keyof NavbarActionsArgs];
+
+interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+    label?: string;
+    sublabel?: string;
+}

@@ -7,8 +7,12 @@
     gap: 0.25rem;
     box-sizing: border-box;
     height: auto;
-    align-items: center;
-    justify-content: center;
+
+    &:not(.p1-direction-vertical) {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
 
     &.p1- {
         &variant- {
@@ -28,11 +32,9 @@
         }
     }
 
-    &.p1-vertical {
-        padding: 2rem 2rem;
+    &.p1-direction-vertical {
         width: 20vw;
         flex-direction: column;
-        gap: 1rem;
 
         &.p1-centered {
             justify-content: center;
