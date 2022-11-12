@@ -15,7 +15,7 @@ should work, there could be limited functionality or bugs present.
 To install Paragon, please use the following command in the root directory of any React application.
 
 ```
-yarn add @paragonjs/components
+yarn add @paragonjs/core
 ```
 
 or

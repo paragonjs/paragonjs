@@ -8365,7 +8365,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@^18.0.0", "react@^18.2.0", "react@>= 16":
+"react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@file:../../../github/playground/node_modules/react":
   "resolved" "file:../../../github/playground/node_modules/react"
   "version" "18.2.0"
   dependencies:

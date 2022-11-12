@@ -27,13 +27,12 @@ type AlignItemsOptions =
     | "revert"
     | "unset";
 
-
 interface ContainerProps {
-    justify: JustifyContentOptions;
-    align: AlignItemsOptions;
-    padding: ZeroToFive;
-    gap: ZeroToFive;
-    fluid: boolean;
+    justify?: JustifyContentOptions;
+    align?: AlignItemsOptions;
+    padding?: ZeroToFive;
+    gap?: ZeroToFive;
+    fluid?: boolean;
 }
 
 interface AsyncButtonProps extends ButtonProps {
@@ -102,10 +101,11 @@ interface NavbarProps
 
 interface ToastType {
     message: string;
-    type: ToastColorType;
+    //type: ToastColorType;
     toastKey: string;
+    expiresAfter: number;
+    hasHeader: boolean;
 }
-
 type ToastColorType = "success" | "dangerous" | "warning" | "default";
 
 interface ToastState {
@@ -117,6 +117,13 @@ interface ToastActionArgs {
     REMOVE_TOAST: string;
     REMOVE_TOAST_AT_INDEX: number;
     CLEAN_TOASTER: null;
+}
+
+interface CreateToast {
+    message: string;
+    //type?: ToastColorType;
+    expiresAfter?: number;
+    hasHeader?: boolean;
 }
 
 type ToastActions = {
@@ -137,8 +144,11 @@ interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     expiresAfter?: number;
     fadesAfter?: number;
+    index?: number;
+    gap?: number;
+    toastKey?: string;
+    hasHeader?: boolean;
 }
-
 type ToastContextInterface = [ToastState, React.Dispatch<ToastActions>];
 
 /**

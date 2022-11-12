@@ -1,48 +1,83 @@
-/**
- *
- * Ease-In Functions
- *
- */
-$easeInSine: cubic-bezier(0.12, 0, 0.39, 0);
-$easeInCubic: cubic-bezier(0.32, 0, 0.67, 0);
-$easeInQuint: cubic-bezier(0.64, 0, 0.78, 0);
-$easeInCirc: cubic-bezier(0.55, 0, 1, 0.45);
-$easeInQuad: cubic-bezier(0.11, 0, 0.5, 0);
-$easeInQuart: cubic-bezier(0.5, 0, 0.75, 0);
-$easeInExpo: cubic-bezier(0.7, 0, 0.84, 0);
-$easeInBack: cubic-bezier(0.36, 0, 0.66, -0.56);
-
-/**
-*
-* Ease-Out Functions
-*
-*/
-$easeOutSine: cubic-bezier(0.61, 1, 0.88, 1);
-$easeOutCubic: cubic-bezier(0.33, 1, 0.68, 1);
-$easeOutQuint: cubic-bezier(0.22, 1, 0.36, 1);
-$easeOutCirc: cubic-bezier(0, 0.55, 0.45, 1);
-$easeOutQuad: cubic-bezier(0.5, 1, 0.89, 1);
-$easeOutQuart: cubic-bezier(0.25, 1, 0.5, 1);
-$easeOutExpo: cubic-bezier(0.16, 1, 0.3, 1);
-$easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
+@import "../../scss//variables";
 
 .p1-toast-provider {
     z-index: 20;
     .p1-toast {
+        white-space: pre;
+        position: absolute;
         display: flex;
+        flex-direction: column;
+        pointer-events: all;
         z-index: 20;
-        justify-content: center;
-        align-self: center;
-        align-items: center;
-        padding: 1rem 2rem;
-        text-align: center;
+        justify-content: flex-start;
+        padding: 0 0 0px 0;
+        //padding: 32px 32px 16px 32px;
+        min-width: 200px;
+        text-align: left;
         top: -0px;
-        transform: translateY(3vh);
+        transform: translateY(0vh);
         border-radius: 0.35rem;
         background: white;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-        transition: all 400ms;
         animation: toast 350ms $easeInSine 0s 1 normal;
+        transition: transform 200ms linear;
+        overflow: hidden;
+        background: rgb(235, 236, 236);
+
+        .p1-toast-heading {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            background: black;
+            background: rgb(240, 240, 240);
+            padding: 4px 6px;
+            box-sizing: border-box;
+            box-shadow: 0 1px rgb(210, 210, 210);
+        }
+
+        .p1-toast-body {
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            padding: 10px 10px;
+        }
+
+        .p1-close-toast {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-weight: 900;
+            margin: 4px;
+            border-radius: 999%;
+            border: none;
+            position: relative;
+            font-size: 8px;
+            box-shadow: 0px 0px 2px 1px rgba(0, 0, 0, 0.1);
+            background: rgba(237, 106, 94, 1);
+
+            span {
+                display: none;
+                height: 100%;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &:hover {
+                color: black;
+                background: rgba(237, 106, 94, 1);
+
+                span {
+                    display: flex;
+                }
+            }
+
+            &:active {
+                background: rgb(178, 79, 71);
+            }
+        }
     }
 }
 
@@ -59,7 +94,7 @@ $easeOutBack: cubic-bezier(0.34, 1.56, 0.64, 1);
         transform: translateY(-24vh) rotate(26deg);
     }
     90% {
-        transform: translateY(-0vh) rotate(26deg);
+        transform: translateY(0vh) rotate(20deg);
     }
     100% {
         transform: translateY(3vh) rotate(0deg);
