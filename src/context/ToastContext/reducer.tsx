@@ -15,19 +15,21 @@ const ToastReducer: React.Reducer<ToastState, ToastActions> = (
         case ToasterActions.CREATE_TOAST:
             return {
                 ...state,
-                toasts: [...state.toasts, action.payload],
+                toasts: [action.payload, ...state.toasts],
             };
         case ToasterActions.REMOVE_TOAST:
             return {
                 ...state,
-                toasts: state.toasts.slice(0, state.toasts.length - 1),
+                toasts: state.toasts.filter((a: ToastType) => {
+                    return a.toastKey !== action.payload;
+                }),
             };
         case ToasterActions.REMOVE_TOAST_AT_INDEX:
             return {
                 ...state,
                 toasts: [
-                    ...state.toasts.slice(0, action.payload - 1),
-                    ...state.toasts.slice(action.payload, state.toasts.length),
+                    ...state.toasts.slice(0, action.payload),
+                    ...state.toasts.slice(action.payload + 1, state.toasts.length),
                 ],
             };
         case ToasterActions.CLEAN_TOASTER:
