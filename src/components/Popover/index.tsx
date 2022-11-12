@@ -32,20 +32,19 @@ const Popover: React.FC<PopperProps> = (props: PopperProps) => {
     const { element, placement = "auto", arrow = false, strategy, children, ...rest } = props;
 
     React.useEffect(() => {
-        const popper: HTMLElement = document.querySelector("#p1-tooltip");
+        const popper: HTMLElement | null = document.querySelector("#p1-tooltip");
 
-        /**
-         *
-         * Typecheck that ReactNode is not a string for elementClass.
-         *
-         */
+        if (!popper) return;
+
         if (!React.isValidElement(children)) {
-            return null;
+            return;
         }
 
         const elementClass = children.props.className;
         const arrowComponent = document.querySelector("#p1-popover-arrow");
-        const elementComponent: HTMLElement = document.querySelector(`.${elementClass}`);
+        const elementComponent: HTMLElement | null = document.querySelector(`.${elementClass}`);
+
+        if (!elementComponent) return;
 
         createPopper(elementComponent, popper, {
             placement: placement ? placement : "auto",

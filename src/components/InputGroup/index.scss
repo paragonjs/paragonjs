@@ -1,0 +1,14 @@
+.p1-inputgroup {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+
+    .p1-label {
+        margin-bottom: 2px;
+
+        .p1-sublabel {
+            font-size: 12px;
+            margin-left: 2px;
+        }
+    }
+}

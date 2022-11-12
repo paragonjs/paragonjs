@@ -33,6 +33,7 @@ const MARGINS: { [d in Dimension]: string[] } = {
 
 function getDefaultDimensionValue(dimension: Dimension, elem: HTMLElement): number {
     const offset = `offset${dimension[0].toUpperCase()}${dimension.slice(1)}`;
+    // @ts-ignore
     const value = elem[offset];
     const margins = MARGINS[dimension];
     // @ts-ignore
@@ -126,6 +127,7 @@ export default function useNavbarContext(): UseNavbarContext {
      */
     const collapseAnimation = React.useCallback(() => {
         const { expanded, collapser, collapserHeight } = state;
+        if (!collapser) return;
         /**
          * If height is zero, we expand
          */

@@ -6,14 +6,9 @@ $greensea: #16a085;
 $night: #34495e;
 $midnight: #2c3e50;
 $transition: all 0.5s ease;
+$disabled: #747d8c;
 
-/* Hide the input */
-input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    z-index: -1;
-}
-.check-trail {
+.p1-check-trail {
     display: flex;
     align-items: center;
     width: 45px;
@@ -23,7 +18,8 @@ input[type="checkbox"] {
     transition: $transition;
     cursor: pointer;
 }
-.check-handler {
+
+.p1-check-handler {
     display: flex;
     margin-left: 0.2em;
     justify-content: center;
@@ -41,13 +37,28 @@ input[type="checkbox"] {
         font-weight: bold;
     }
 }
-input[type="checkbox"]:checked + .check-trail {
+
+input[type="checkbox"]:checked + .p1-check-trail {
     background: $greensea;
-    .check-handler {
+    .p1-check-handler {
         margin-left: 50%;
         background: $turquoise;
         &::before {
             content: "\2714";
+        }
+    }
+}
+
+/* Hide the input */
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+
+    &:disabled ~ .p1-check-trail {
+        background: $disabled;
+        .p1-check-handler {
+            background: $disabled;
         }
     }
 }
@@ -59,7 +70,7 @@ input[type="checkbox"]:checked + .check-trail {
  *
  *
  */
-.switch-b {
+.p1-switch-b {
     --line: #505162;
     --dot: #f7f8ff;
     --circle: #9ea0be;
@@ -143,7 +154,7 @@ input[type="checkbox"]:checked + .check-trail {
  *
  */
 
-.switch-c input {
+.p1-switch-c input {
     position: absolute;
     opacity: 0;
 }
@@ -152,16 +163,17 @@ input[type="checkbox"]:checked + .check-trail {
    * 1. Adjust this to size
    */
 
-.switch-c {
+.p1-switch-c {
     display: inline-block;
     font-size: 20px; /* 1 */
     height: 1em;
     width: 2em;
     background: #bdb9a6;
     border-radius: 1em;
+    cursor: pointer;
 }
 
-.switch-c div {
+.p1-switch-c div {
     height: 1em;
     width: 1em;
     border-radius: 1em;
@@ -172,8 +184,14 @@ input[type="checkbox"]:checked + .check-trail {
     transition: all 300ms;
 }
 
-.switch-c input:checked + div {
+.p1-switch-c input:checked + div {
     -webkit-transform: translate3d(100%, 0, 0);
     -moz-transform: translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
+}
+
+.p1-switch-c-input {
+    &:disabled ~ .p1-switch-c-slider {
+        background: $disabled;
+    }
 }

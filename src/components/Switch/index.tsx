@@ -1,13 +1,15 @@
 import * as React from "react";
 import "./index.scss";
 
-interface Props
-    extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-    variant: "a" | "b" | "c";
+interface SwitchProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
+    variant?: "a" | "b" | "c";
+    disabled?: boolean;
+    onClick?: (event: React.SyntheticEvent<HTMLInputElement>) => void;
+    state?: boolean;
 }
 
-const Switch: React.FC<any> = (props: Props) => {
-    const { variant, ...rest } = props;
+const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
+    const { variant = "a", ...rest } = props;
 
     if (variant === "c") {
         return <SwitchC {...rest} />;
@@ -23,9 +25,9 @@ const SwitchA = (
     props: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 ) => (
     <>
-        <input id="chck" className="switch-a" type="checkbox" {...props} />
-        <label htmlFor="chck" className="check-trail">
-            <span className="check-handler"></span>
+        <input id="chck" className="p1-switch-a" type="checkbox" {...props} />
+        <label htmlFor="chck" className="p1-check-trail">
+            <span className="p1-check-handler"></span>
         </label>
     </>
 );
@@ -33,7 +35,7 @@ const SwitchA = (
 const SwitchB = (
     props: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 ) => (
-    <label className="switch-b">
+    <label className="p1-switch-b">
         <input type="checkbox" {...props} />
         <div>
             <span></span>
@@ -44,10 +46,12 @@ const SwitchB = (
 const SwitchC = (
     props: React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 ) => (
-    <div className="switch-c-container">
-        <label className="switch-c">
-            <input type="checkbox" {...props} /> <div></div>
+    <div className="p1-switch-c-container">
+        <label className="p1-switch-c">
+            <input className="p1-switch-c-input" type="checkbox" {...props} />
+            <div className="p1-switch-c-slider" />
         </label>
     </div>
 );
+
 export default Switch;

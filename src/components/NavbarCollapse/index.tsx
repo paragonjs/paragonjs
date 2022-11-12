@@ -12,7 +12,7 @@ export interface NavbarCollapseProps
 const NavbarCollapse: React.FC<NavbarCollapseProps> = (props: NavbarCollapseProps) => {
     const { position, className, ...rest } = props;
     const { setCollapser } = useNavbarContext();
-    const ref = React.useRef<HTMLDivElement>();
+    const ref = React.useRef<HTMLDivElement>(null);
 
     const classNames = useDynamicClassname({
         initialClassname: "p1-navbar-collapse",

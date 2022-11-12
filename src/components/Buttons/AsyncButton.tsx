@@ -4,7 +4,7 @@ import Spinner from "../Spinner";
 import useDynamicClassname from "../../hooks/useDynamicClassname";
 
 const AsyncButton: React.FC<AsyncButtonProps> = (props: AsyncButtonProps): JSX.Element => {
-    const [_loading, _setLoading] = React.useState<boolean>(props.loading);
+    const [_loading, _setLoading] = React.useState<boolean>(props.loading ? props.loading : false);
     const { color, className, fill, loading, ...rest } = props;
 
     const classNames = useDynamicClassname({
@@ -23,6 +23,7 @@ const AsyncButton: React.FC<AsyncButtonProps> = (props: AsyncButtonProps): JSX.E
 
     async function handleClick(): Promise<void> {
         try {
+            if (!props.onClick) return;
             _setLoading(true);
             await props.onClick();
             _setLoading(false);

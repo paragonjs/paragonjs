@@ -1,5 +1,4 @@
 import * as React from "react";
-import invariant from "tiny-invariant";
 
 export interface UseDynamicContextProps {
     initialClassname: string;
@@ -24,10 +23,9 @@ export default function useDynamicClassname({
                 const caller = useDynamicClassname.caller as React.ComponentType<any>;
                 const name = caller.displayName || caller.name;
 
-                invariant(
-                    dynamicProps[propName].includes(props[propName]),
-                    `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`
-                );
+                if (!dynamicProps[propName].includes(props[propName])) {
+                    `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`;
+                }
 
                 /// Check for number
                 if (typeof props[propName] === "number") {
