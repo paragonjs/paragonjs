@@ -17,34 +17,45 @@ interface ComponentWithMaybeLabelProps extends InputGroupLabelProps {
 }
 
 interface InputGroupLabelProps extends LabelProps {
-    childElement: React.ReactNode[][];
+    childElement: React.ReactNode[];
 }
 
-const ComponentMaybeWithLabel: React.FC<ComponentWithMaybeLabelProps> = React.forwardRef(
-    function Children(props: InputGroupLabelProps, ref: React.ForwardedRef<HTMLElement>) {
+const ComponentMaybeWithLabel: React.FC<ComponentWithMaybeLabelProps> =
+    React.forwardRef(function Children(
+        props: InputGroupLabelProps,
+        ref: React.ForwardedRef<HTMLElement>
+    ) {
         const { childElement, ...rest } = props;
 
         return (
             <Label {...rest}>
                 {childElement.map((child) => {
                     if (!React.isValidElement(child)) {
-                        return childElement;
+                        console.log("child invalid");
+                        return;
                     }
 
                     if (!ref) {
+                        console.log("no ref");
                         return;
                     }
                     return React.cloneElement(child, ref);
                 })}
             </Label>
         );
-    }
-);
+    });
 
 const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
-    const { className, label, sublabel, children, direction = "horizontal", ...rest } = props;
+    const {
+        className,
+        label,
+        sublabel,
+        children,
+        direction = "horizontal",
+        ...rest
+    } = props;
     const [htmlFor, setHtmlFor] = React.useState<string>("");
-    const ref:React.RefObject<HTMLElement> = React.useRef<HTMLElement>(null);
+    const ref: React.RefObject<HTMLElement> = React.useRef<HTMLElement>(null);
 
     const classNames = useDynamicClassname({
         initialClassname: "p1-inputgroup",
@@ -60,7 +71,7 @@ const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
     });
 
     const childElement = React.useMemo(
-        () => React.Children.map(children, () => [children]),
+        () => React.Children.map(children, (child) => child),
         [children]
     );
 
@@ -70,16 +81,12 @@ const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
         }
     }, [ref]);
 
-    if (!React.isValidElement(childElement)) {
-        return null;
-    }
-
     return (
         <div className={classNames} {...rest}>
             <ComponentMaybeWithLabel
                 ref={ref}
                 {...{
-                    childElement,
+                    childElement: childElement ? childElement : [],
                     label,
                     sublabel,
                     htmlFor,

@@ -16,8 +16,9 @@ import Spinner from "./components/Spinner";
 import Switch from "./components/Switch";
 import Toast from "./components/Toast";
 import Toaster from "./components/Toaster";
-import ToastProvider from "./context/ToastContext";
+import NumericInput from "./components/NumericInput";
 /// Hooks
+import ToastProvider from "./context/ToastContext";
 import useToaster from "./hooks/useToaster";
 
 export {
@@ -33,6 +34,7 @@ export {
     NavbarHeading,
     NavLink,
     NavToggler,
+    NumericInput,
     Popover,
     Row,
     Spinner,

@@ -6,39 +6,37 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "index.js",
-        libraryTarget: "commonjs2",
+        library: "@paragonjs/core",
+        libraryTarget: "umd",
+        umdNamedDefine: true,
     },
+    devtool: "source-map",
     module: {
         rules: [
             {
                 test: /\.(js|jsx)?$/,
-                exclude: /(node_modules)/,
+                exclude: /node_modules/,
                 use: "babel-loader",
+              
             },
             {
                 test: /\.(ts|tsx)?$/,
-                use: "ts-loader",
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"],
+                use: "ts-loader",
             },
             {
                 test: /\.s[ac]ss$/i,
+                exclude: /node_modules/,
                 use: [
-                    // Creates `style` nodes from JS strings
                     "style-loader",
-                    // Translates CSS into CommonJS
                     "css-loader",
-                    // Compiles Sass to CSS
                     "sass-loader",
                 ],
             },
         ],
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".scss"],
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".css", ".scss"],
         alias: {
             react: path.resolve(__dirname, "./node_modules/react"),
             "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),

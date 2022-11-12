@@ -16,6 +16,7 @@ import Spinner from "./components/Spinner";
 import Switch from "./components/Switch";
 import Toast from "./components/Toast";
 import Toaster from "./components/Toaster";
+import NumericInput from "./components/NumericInput";
 import ToastProvider from "./context/ToastContext";
 import useToaster from "./hooks/useToaster";
-export { AsyncButton, Button, Card, Column, Input, InputGroup, Label, Navbar, NavCollapse, NavbarHeading, NavLink, NavToggler, Popover, Row, Spinner, Switch, Toast, Toaster, ToastProvider, useToaster, };
+export { AsyncButton, Button, Card, Column, Input, InputGroup, Label, Navbar, NavCollapse, NavbarHeading, NavLink, NavToggler, NumericInput, Popover, Row, Spinner, Switch, Toast, Toaster, ToastProvider, useToaster, };

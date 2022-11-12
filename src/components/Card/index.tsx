@@ -22,7 +22,12 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
         },
     });
 
-    return <div {...rest} className={classNames}></div>;
+    return (
+        <div
+            {...rest}
+            className={classNames}
+        />
+    );
 };
 
 export default Card;
