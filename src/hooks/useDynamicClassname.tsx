@@ -24,7 +24,9 @@ export default function useDynamicClassname({
                 const name = caller.displayName || caller.name;
 
                 if (!dynamicProps[propName].includes(props[propName])) {
-                    `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`;
+                    throw Error(
+                        `Prop with name "${propName}" in component <${name}/> cannot be "${props[propName]}"`
+                    );
                 }
 
                 /// Check for number

@@ -1,3 +1,5 @@
+import "./index.scss";
+
 import AsyncButton from "./components/Buttons/AsyncButton";
 import Button from "./components/Buttons/Button";
 import Card from "./components/Card";

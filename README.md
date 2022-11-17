@@ -24,7 +24,14 @@ or
 npm install @paragonjs/core
 ```
 
+
 ## Usage
+
+In the entry point of your project (index.js, index.ts) import styling:
+
+```
+import "@paragonjs/core/dist/src/main.css";
+```
 
 Paragon is simple to use; just important a component and render it.
 

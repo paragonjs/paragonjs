@@ -9,22 +9,22 @@ import NavbarProvider from "../../context/NavbarContext";
 
 /**
  *
- * @function Navbar
+ *  Navbar
  *
  *  Navigation bar component - Bundled with NavbarCollapse, NavbarHeading, NavbarLink, and NavbarToggler -
  *  these components can be accessed by using <Navbar.Collapse/>, <Navbar.Toggler/>, etc.
  *
- * @param cenetered - Margin centered if true.
+ *  cenetered - Margin centered if true.
  *
  *  default: false
  *
- * @param variant - This changes the overal theme of the navbar.
+ *  variant - This changes the overal theme of the navbar.
  *
  *  Options: "dark" | "light"
  *
  *  Default: "light"
  *
- * @param direction - The direction of the navigation bar.
+ *  direction - The direction of the navigation bar.
  *
  *  Options: "horizontal" | "vertical"
  *
@@ -61,7 +61,10 @@ const Navbar: React.FC<NavbarProps> = (props: NavbarProps) => {
 
     return (
         <NavbarProvider>
-            <div {...rest} className={classNames} />
+            <div
+                {...rest}
+                className={classNames}
+            />
         </NavbarProvider>
     );
 };

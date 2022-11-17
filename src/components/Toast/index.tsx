@@ -11,6 +11,7 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
         expiresAfter = 8000,
         fadesAfter = props.fadesAfter ? props.fadesAfter : expiresAfter - 1000,
         hasHeader = false,
+        type = "",
         ...rest
     } = props;
 
@@ -22,8 +23,12 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
 
     const classNames = useDynamicClassname({
         initialClassname: `p1-toast toast-key${toastKey}`,
-        props: {},
-        dynamicProps: {},
+        props: {
+            type,
+        },
+        dynamicProps: {
+            type: ["success", "danger", "warning", ""],
+        },
     });
 
     React.useEffect(() => {
@@ -42,6 +47,13 @@ const Toast: React.FC<ToastProps> = (props: ToastProps) => {
              */
             for (let i = 1; i <= 5; i++) {
                 setTimeout(() => {
+                    /**
+                     * The base position of toast is calculated by its index postion.
+                     *
+                     * It's position changes at 1/5 of its height per frame, for a total of 5 frames or 200ms.
+                     *
+                     * When its index changes negatively, this same animation occurs in reverse for all toasts below the removed index.
+                     */
                     const pos = basePosition + height * (i / 5);
                     if (ref.current) {
                         ref.current.style.transform = `translateY(${pos}px)`;

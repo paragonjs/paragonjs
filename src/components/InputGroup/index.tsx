@@ -7,6 +7,8 @@ interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
     label?: string;
     sublabel?: string;
     direction?: "horizontal" | "vertical";
+    bottomlabel?: string;
+    status?: Status;
     /**
      * @todo Add bottom label
      */
@@ -20,30 +22,22 @@ interface InputGroupLabelProps extends LabelProps {
     childElement: React.ReactNode[];
 }
 
-const ComponentMaybeWithLabel: React.FC<ComponentWithMaybeLabelProps> =
-    React.forwardRef(function Children(
-        props: InputGroupLabelProps,
-        ref: React.ForwardedRef<HTMLElement>
-    ) {
+const ComponentMaybeWithLabel: React.FC<ComponentWithMaybeLabelProps> = React.forwardRef(
+    function Children(props: InputGroupLabelProps, ref: React.ForwardedRef<HTMLElement>) {
         const { childElement, ...rest } = props;
-
         return (
             <Label {...rest}>
                 {childElement.map((child) => {
-                    if (!React.isValidElement(child)) {
-                        console.log("child invalid");
+                    if (!React.isValidElement(child) || !ref) {
                         return;
                     }
 
-                    if (!ref) {
-                        console.log("no ref");
-                        return;
-                    }
                     return React.cloneElement(child, ref);
                 })}
             </Label>
         );
-    });
+    }
+);
 
 const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
     const {
@@ -51,6 +45,7 @@ const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
         label,
         sublabel,
         children,
+        bottomlabel,
         direction = "horizontal",
         ...rest
     } = props;
@@ -64,6 +59,7 @@ const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
             direction,
             label,
             sublabel,
+            bottomlabel,
         },
         dynamicProps: {
             direction: ["horizontal", "vertical"],
@@ -82,13 +78,17 @@ const InputGroup: React.FC<InputGroupProps> = (props: InputGroupProps) => {
     }, [ref]);
 
     return (
-        <div className={classNames} {...rest}>
+        <div
+            className={classNames}
+            {...rest}
+        >
             <ComponentMaybeWithLabel
                 ref={ref}
                 {...{
                     childElement: childElement ? childElement : [],
                     label,
                     sublabel,
+                    bottomlabel,
                     htmlFor,
                 }}
             />

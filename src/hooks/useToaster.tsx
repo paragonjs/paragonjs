@@ -35,7 +35,7 @@ export default function useToaster(): {
      */
     function createToast({
         message,
-        //type = "default",
+        type = "",
         expiresAfter = 8000,
         hasHeader = true,
     }: CreateToast) {
@@ -46,6 +46,7 @@ export default function useToaster(): {
             payload: {
                 message,
                 toastKey,
+                type,
                 expiresAfter,
                 hasHeader,
             },

@@ -1,3 +1,5 @@
+@import "../../scss/status";
+
 .p1-input-container {
     display: flex;
     position: relative;
@@ -8,10 +10,23 @@
     border-radius: 5px;
     overflow: visible;
     box-sizing: border-box;
+    width: fit-content;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 
     &:focus-within {
         box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    }
+
+    &.p1-status- {
+        &success {
+            background: $successTransparent;
+        }
+        &danger {
+            background: $dangerTransparent;
+        }
+        &warning {
+            background: $warningTransparent;
+        }
     }
 
     .p1-input {
