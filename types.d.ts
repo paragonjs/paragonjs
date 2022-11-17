@@ -4,8 +4,6 @@ interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     fill?: boolean;
 }
 
-type ZeroToFive = 0 | 1 | 2 | 3 | 4;
-
 type JustifyContentOptions =
     | "flex-start"
     | "flex-end"
@@ -27,13 +25,14 @@ type AlignItemsOptions =
     | "revert"
     | "unset";
 
+type Status = "success" | "danger" | "warning" | "" | undefined;
 
 interface ContainerProps {
-    justify: JustifyContentOptions;
-    align: AlignItemsOptions;
-    padding: ZeroToFive;
-    gap: ZeroToFive;
-    fluid: boolean;
+    justify?: JustifyContentOptions;
+    align?: AlignItemsOptions;
+    padding?: 0 | 1 | 2 | 3 | 4;
+    gap?: 0 | 1 | 2 | 3 | 4;
+    fluid?: boolean;
 }
 
 interface AsyncButtonProps extends ButtonProps {
@@ -44,10 +43,10 @@ interface AsyncButtonProps extends ButtonProps {
 interface CardProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     color?: string;
-    elevation: ZeroToFive;
-    radius: ZeroToFive;
+    elevation: 0 | 1 | 2 | 3 | 4;
+    radius: 0 | 1 | 2 | 3 | 4;
     variant?: "light" | "dark";
-    padding: ZeroToFive;
+    padding: 0 | 1 | 2 | 3 | 4;
 }
 
 interface ColumnProps
@@ -104,9 +103,11 @@ interface ToastType {
     message: string;
     type: ToastColorType;
     toastKey: string;
+    expiresAfter: number;
+    hasHeader: boolean;
 }
 
-type ToastColorType = "success" | "dangerous" | "warning" | "default";
+type ToastColorType = Status;
 
 interface ToastState {
     toasts: Array<ToastType>;
@@ -117,6 +118,13 @@ interface ToastActionArgs {
     REMOVE_TOAST: string;
     REMOVE_TOAST_AT_INDEX: number;
     CLEAN_TOASTER: null;
+}
+
+interface CreateToast {
+    message: string;
+    type?: ToastColorType;
+    expiresAfter?: number;
+    hasHeader?: boolean;
 }
 
 type ToastActions = {
@@ -137,6 +145,11 @@ interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
     expiresAfter?: number;
     fadesAfter?: number;
+    index?: number;
+    gap?: number;
+    toastKey?: string;
+    hasHeader?: boolean;
+    type?: ToastColorType;
 }
 
 type ToastContextInterface = [ToastState, React.Dispatch<ToastActions>];
@@ -180,4 +193,6 @@ type NavbarActions = {
 interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
     label?: string;
     sublabel?: string;
+    bottomlabel?: string;
+    status?: Status;
 }

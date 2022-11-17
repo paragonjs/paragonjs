@@ -1,28 +1,31 @@
 import * as React from "react";
+import useDynamicClassname from "../../hooks/useDynamicClassname";
 import "./index.scss";
 
 export interface NavbarHeadingProps
     extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-    fontSize: "small" | "medium" | "large";
+    fontSize?: "small" | "medium" | "large";
 }
 
 const NavbarHeading: React.FC<NavbarHeadingProps> = (props: NavbarHeadingProps) => {
-    const classNames = React.useMemo(() => {
-        const _classNames = ["p1-navbar-heading"];
+    const { fontSize, className, ...rest } = props;
 
-        if (props.fontSize) {
-            _classNames.push(props.fontSize);
-        }
-
-        if (props.className) {
-            _classNames.push(props.className);
-        }
-
-        return _classNames.join(" ");
-    }, [props.fontSize, props.className]);
+    const classNames = useDynamicClassname({
+        initialClassname: "p1-navbar-heading",
+        props: {
+            className,
+            fontSize,
+        },
+        dynamicProps: {
+            fontSize: ["small", "medium", "large"],
+        },
+    });
 
     return (
-        <div {...props} className={classNames}>
+        <div
+            {...rest}
+            className={classNames}
+        >
             {props.children}
         </div>
     );

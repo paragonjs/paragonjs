@@ -18,7 +18,7 @@ enum ToasterActions {
  */
 export default function useToaster(): {
     toasts: Array<ToastType>;
-    createToast: (message: string, type?: ToastColorType) => void;
+    createToast: (args: CreateToast) => void;
     removeToast: (toastKey: string) => void;
     removeToastAtIndex: (index: number) => void;
     cleanToaster: () => void;
@@ -28,16 +28,33 @@ export default function useToaster(): {
 
     const { toasts } = state;
 
-    function createToast(message: string, type: ToastColorType = "default") {
+    /**
+     *
+     * Create Toast - Adds a toast to the toaster. Automatically removes the toast after 'expiresAfter' time.
+     *
+     */
+    function createToast({
+        message,
+        type = "",
+        expiresAfter = 8000,
+        hasHeader = true,
+    }: CreateToast) {
         const toastKey = Math.floor(Math.random() * (999999999999 - 1) + 1).toString();
+
         dispatch({
             type: ToasterActions.CREATE_TOAST,
             payload: {
                 message,
                 toastKey,
                 type,
+                expiresAfter,
+                hasHeader,
             },
         });
+
+        setTimeout(function () {
+            removeToast(toastKey);
+        }, expiresAfter);
     }
 
     function removeToast(toastKey: string) {

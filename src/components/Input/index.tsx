@@ -10,20 +10,24 @@ interface InputProps extends React.ComponentPropsWithRef<"input"> {
     type?: string;
     round?: boolean;
     small?: boolean;
+    fill?: boolean;
     large?: boolean;
+    elevation?: 1 | 2;
+    status?: Status;
 }
 
 interface InputContainerProps extends React.HTMLAttributes<HTMLDivElement> {
-    fluid: boolean;
+    fill?: boolean;
+    className?: string;
 }
 
-const Input: React.FC<InputProps> = React.forwardRef<
-    HTMLInputElement,
-    InputProps
->(function Input(props: InputProps, ref: React.ForwardedRef<HTMLInputElement>) {
+const Input: React.FC<InputProps> = React.forwardRef<HTMLInputElement, InputProps>(function Input(
+    props: InputProps,
+    ref: React.ForwardedRef<HTMLInputElement>
+) {
     const {
         className,
-        containerProps = { className: "p1-input-container", fluid: false },
+        containerProps = { className: "p1-input-container" },
         placeholder,
         rightElement,
         leftElement,
@@ -32,14 +36,14 @@ const Input: React.FC<InputProps> = React.forwardRef<
         round = false,
         large = false,
         small = false,
+        elevation = 2,
+        fill: fill = false,
+        status,
         ...rest
     } = props;
 
-    const {
-        className: containerClassname,
-        fluid,
-        ...containerRest
-    } = containerProps;
+    const { className: containerClassname, ...containerRest } = containerProps;
+
     const classNames = useDynamicClassname({
         initialClassname: "p1-input",
         props: {
@@ -56,22 +60,27 @@ const Input: React.FC<InputProps> = React.forwardRef<
             round,
             large,
             small,
-            fluid,
+            fill,
             className: containerClassname,
+            elevation,
+            status,
         },
         dynamicProps: {
             large: [true, false],
             small: [true, false],
             round: [true, false],
-            fluid: [true, false],
+            fill: [true, false],
+            elevation: [1, 2],
+            status: ["success", "danger", "warning"],
         },
     });
 
     return (
-        <div className={containerClassnames} {...containerRest}>
-            {leftElement ? (
-                <span className="p1-input-element">{leftElement}</span>
-            ) : null}
+        <div
+            className={containerClassnames}
+            {...containerRest}
+        >
+            {leftElement ? <span className="p1-input-element">{leftElement}</span> : null}
             <input
                 ref={ref}
                 type={type}
@@ -80,9 +89,7 @@ const Input: React.FC<InputProps> = React.forwardRef<
                 autoComplete={autocomplete}
                 {...rest}
             />
-            {rightElement ? (
-                <span className="p1-input-element">{rightElement}</span>
-            ) : null}
+            {rightElement ? <span className="p1-input-element">{rightElement}</span> : null}
         </div>
     );
 });

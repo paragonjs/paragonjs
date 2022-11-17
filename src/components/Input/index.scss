@@ -1,3 +1,5 @@
+@import "../../scss/status";
+
 .p1-input-container {
     display: flex;
     position: relative;
@@ -8,12 +10,23 @@
     border-radius: 5px;
     overflow: visible;
     box-sizing: border-box;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px,
-        rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    width: fit-content;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
 
     &:focus-within {
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-            rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    }
+
+    &.p1-status- {
+        &success {
+            background: $successTransparent;
+        }
+        &danger {
+            background: $dangerTransparent;
+        }
+        &warning {
+            background: $warningTransparent;
+        }
     }
 
     .p1-input {
@@ -28,28 +41,28 @@
         height: 34px;
         line-height: 34px;
         padding: 4px 6px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+            Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         font-variant: normal;
         font-kerning: normal;
 
         &:first-child {
-            padding-left: 15px;
+            padding-left: 17px;
         }
 
         &:not(:first-child) {
-            padding-left: 30px;
+            padding-left: 34px;
         }
 
         &:not(:last-child) {
-            padding-right: 30px;
+            padding-right: 34px;
         }
     }
 
     .p1-input-element {
         display: inline-block;
         position: absolute;
-        margin: 8px;
+        margin: 9px;
         vertical-align: middle;
 
         &:first-child {
@@ -67,6 +80,9 @@
         div,
         span,
         p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 16px;
             width: 16px;
         }
@@ -96,27 +112,27 @@
             border-radius: 6px;
             .p1-input {
                 height: 46px;
-                padding-right: 12px;
-                padding-left: 12px;
+                padding-right: 14px;
+                padding-left: 14px;
 
                 &:not(:first-child) {
-                    padding-left: 40px;
+                    padding-left: 46px;
                 }
 
                 &:not(:last-child) {
-                    padding-right: 40px;
+                    padding-right: 46px;
                 }
             }
             .p1-input-element {
-                margin: 10px;
+                margin: 12px;
 
                 svg,
                 img,
                 div,
                 span,
                 p {
-                    height: 24px;
-                    width: 24px;
+                    height: 22px;
+                    width: 22px;
                 }
             }
         }
@@ -126,15 +142,15 @@
                 height: 28px;
                 font-size: 13px;
                 line-height: 12px;
-                padding-right: 6px;
-                padding-left: 6px;
+                padding-right: 8px;
+                padding-left: 8px;
 
                 &:not(:first-child) {
-                    padding-left: 24px;
+                    padding-left: 26px;
                 }
 
                 &:not(:last-child) {
-                    padding-right: 24px;
+                    padding-right: 26px;
                 }
             }
 

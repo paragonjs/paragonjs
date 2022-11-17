@@ -15,7 +15,7 @@ should work, there could be limited functionality or bugs present.
 To install Paragon, please use the following command in the root directory of any React application.
 
 ```
-yarn add @paragonjs/components
+yarn add @paragonjs/core
 ```
 
 or
@@ -24,7 +24,14 @@ or
 npm install @paragonjs/core
 ```
 
+
 ## Usage
+
+In the entry point of your project (index.js, index.ts) import styling:
+
+```
+import "@paragonjs/core/dist/src/main.css";
+```
 
 Paragon is simple to use; just important a component and render it.
 
