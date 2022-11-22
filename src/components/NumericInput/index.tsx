@@ -3,8 +3,7 @@ import BN from "bn.js";
 import useDynamicClassname from "../../hooks/useDynamicClassname";
 import "./index.scss";
 
-interface NumericInputProps
-    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value"> {
+interface NumericInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "value"> {
     decimals?: number;
     value?: string | number;
     incrementers?: boolean;
@@ -63,11 +62,7 @@ const NumericInput: React.FC<NumericInputProps> = (props: NumericInputProps) => 
 
     const maybeHandleDecimals = React.useCallback(() => {
         if (decimals && value) {
-            setDecimalValue(
-                bn(value as any)
-                    .mul(bn(decimals))
-                    .toString()
-            );
+            setDecimalValue(bn(value).mul(bn(decimals)).toString());
         }
     }, [value, decimals]);
 
@@ -81,7 +76,11 @@ const NumericInput: React.FC<NumericInputProps> = (props: NumericInputProps) => 
 
     return (
         <div className={containerClassNames}>
-            <input value={value} className={classNames} {...rest} />
+            <input
+                value={value}
+                className={classNames}
+                {...rest}
+            />
 
             {incrementers ? (
                 <>
