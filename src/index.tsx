@@ -3,6 +3,7 @@ import "./index.scss";
 export { default as AsyncButton } from "./components/Buttons/AsyncButton";
 export { default as Button } from "./components/Buttons/Button";
 export { default as Card } from "./components/Card";
+export { default as Carousel } from "./components/Carousel";
 export { default as Column } from "./components/Column";
 export { default as Input } from "./components/Input";
 export { default as InputGroup } from "./components/InputGroup";
